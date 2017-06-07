@@ -1,0 +1,13 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+#	name = Philipp Schuster
+#	email = phip1611@gmail.com
+[user]
+	name = Philipp Schuster
+	email = phip1611@gmail.com
+[push]
+	default = simple
+
+[alias]
+	hist = log --graph --decorate --oneline

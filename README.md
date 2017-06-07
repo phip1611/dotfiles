@@ -1,0 +1,1 @@
+My dotfiles for linux systems (config for bash, git, ...)

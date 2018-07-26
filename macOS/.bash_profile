@@ -8,6 +8,10 @@ alias now='date +"%T"'
 alias nowtime=now
 alias nowdate='date +"%Y-%m-%d"'
 
+# in bash shell geht: ifconfig | grep 192.168.* | awk '/inet /{print substr($2,0)}'
+# als alias aber nicht. Mal jemanden fragen!
+#alias localip='ifconfig | grep 192.168.* | awk "/inet /{print substr($2,0)}"'
+
 alias json='python -m json.tool'
 
 #useful params for common commands
@@ -41,3 +45,7 @@ export PS1="\[\e[37m\]\t\[\e[m\]\[\e[32m\] \[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[32m\]
 # Enable bash autocompletion.
 # source: https://www.npmjs.com/package/gulp-cli
 eval "$(gulp --completion=bash)"
+
+# damit gpg funktioniert
+# brauche ich für signed commits in git
+export GPG_TTY=$(tty)

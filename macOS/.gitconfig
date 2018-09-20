@@ -6,8 +6,15 @@
 [user]
 	name = Philipp Schuster
 	email = phip1611@gmail.com
+	signingkey = 51AB92A357A5EB4B
 [push]
 	default = simple
 
 [alias]
 	hist = log --graph --decorate --oneline
+[core]
+	autocrlf = input
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg

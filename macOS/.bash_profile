@@ -12,6 +12,7 @@ alias nowdate='date +"%Y-%m-%d"'
 # als alias aber nicht. Mal jemanden fragen!
 #alias localip='ifconfig | grep 192.168.* | awk "/inet /{print substr($2,0)}"'
 
+#json formatting (pipe(
 alias json='python -m json.tool'
 
 #useful params for common commands
@@ -49,3 +50,4 @@ eval "$(gulp --completion=bash)"
 # damit gpg funktioniert
 # brauche ich für signed commits in git
 export GPG_TTY=$(tty)
+

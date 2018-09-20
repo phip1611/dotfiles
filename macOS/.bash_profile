@@ -42,11 +42,6 @@ parse_git_branch() {
 #   git-repo: 17:45:13 @phip1611$~/a/a-repo/ (git-branch): 
 export PS1="\[\e[37m\]\t\[\e[m\]\[\e[32m\] \[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[32m\]\u\[\e[m\]\[\e[32m\]\\$\[\e[m\]\[\e[32m\]\w\[\e[m\]\[\e[32m\]\[\e[33m\]\$(parse_git_branch)\[\e[m\]:\[\e[m\] "
 
-
-# Enable bash autocompletion.
-# source: https://www.npmjs.com/package/gulp-cli
-eval "$(gulp --completion=bash)"
-
 # damit gpg funktioniert
 # brauche ich für signed commits in git
 export GPG_TTY=$(tty)

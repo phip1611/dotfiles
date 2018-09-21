@@ -46,3 +46,5 @@ export PS1="\[\e[37m\]\t\[\e[m\]\[\e[32m\] \[\e[m\]\[\e[32m\]\\$\[\e[m\]\[\e[32m
 # brauche ich für signed commits in git
 export GPG_TTY=$(tty)
 
+# npm shell completion
+. ~/.npm-completion.bash

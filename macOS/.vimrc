@@ -140,8 +140,8 @@ set splitbelow                  " Horizontal split below
 set splitright                  " Vertical split right
 
 " Spell checking
-set spelllang=en_us             " English as default language
-set spell                       " Enable by default
+"set spelllang=en_us             " English as default language
+"set spell                       " Enable by default
 
 " Invisible characters
 set nolist

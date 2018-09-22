@@ -106,10 +106,27 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
+
+
+
 # "color cat", alternative für "colorize" plugin das leider nicht funktioniert
 # siehe https://github.com/robbyrussell/oh-my-zsh/issues/5005#issuecomment-292822201
 alias ccat="pygmentize -g"
 
+# aliase aus .bash_profile übernommen
+# die wird ja nicht genutzt, wenn zsh aktiv ist
+
+# colored json formatting (useful for pipe)
+alias json='python -m json.tool | pygmentize -s -l JSON'
+#pdfgrep:
+#  i: ignore case
+#  H: include file name
+#  n: page number
+#  C -0: nur Zeile mit vorkommen ausgeben
+alias pdfgrepx='pdfgrep -iHn -C 0'
+# damit gpg funktioniert
+# brauche ich für signed commits in git
+export GPG_TTY=$(tty)
 
 # username@machine im "agnoster" theme entfernen
 DEFAULT_USER=phip1611

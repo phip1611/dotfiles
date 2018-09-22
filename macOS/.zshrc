@@ -66,8 +66,12 @@ plugins=(
   git
   yarn
   npm
-  ng
-#  brew laut hinweis nicht länger benötigt; automatisch da oder so
+  ng   
+  colored-man-pages 
+  #colorize  eig cat output mit farben, aber das funktioniert nicht..
+  # siehe https://github.com/robbyrussell/oh-my-zsh/issues/5005 
+  # als alternative: alias für cat
+#  brew    laut hinweis nicht länger benötigt; automatisch da oder so
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -101,6 +105,12 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
+
+# "color cat", alternative für "colorize" plugin das leider nicht funktioniert
+# siehe https://github.com/robbyrussell/oh-my-zsh/issues/5005#issuecomment-292822201
+alias ccat="pygmentize -g"
+
+
 # username@machine im "agnoster" theme entfernen
 DEFAULT_USER=phip1611
 

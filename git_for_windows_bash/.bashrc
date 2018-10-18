@@ -10,3 +10,8 @@ alias nowdate='date +"%Y-%m-%d"'
 alias ls='ls -G'
 alias lsx='ls -alSh'
 alias lsxr='ls -alShR'
+#git
+alias gp='git pull'
+alias gf='git fetch'
+alias gs='git status'
+

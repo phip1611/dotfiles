@@ -1,20 +1,22 @@
 # This is Git's per-user configuration file.
 [user]
 # Please adapt and uncomment the following lines:
-#	name = Philipp Schuster
-#	email = phip1611@gmail.com
+#    name = Philipp Schuster
+#    email = phip1611@gmail.com
 [user]
-	name = Philipp Schuster
-	email = phip1611@gmail.com
-	signingkey = 51AB92A357A5EB4B
+    name = Philipp Schuster
+    email = phip1611@gmail.com
+    signingkey = 51AB92A357A5EB4B
 [push]
-	default = simple
+    default = simple
 
 [alias]
-	hist = log --graph --decorate --oneline
+    hist = log --graph --decorate --oneline
 [core]
-	autocrlf = input
+    autocrlf = input
 [commit]
-	gpgsign = true
+    gpgsign = true
 [gpg]
-	program = gpg
+    program = gpg
+[pull]
+    rebase = true

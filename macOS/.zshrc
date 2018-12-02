@@ -131,3 +131,7 @@ export GPG_TTY=$(tty)
 # username@machine im "agnoster" theme entfernen
 DEFAULT_USER=phip1611
 
+export HOMEBREW_EDITOR=micro
+export PATH="/usr/local/opt/bison/bin:$PATH"
+export PATH="/usr/local/opt/flex/bin:$PATH"
+export PATH="/usr/local/opt/binutils/bin:$PATH"

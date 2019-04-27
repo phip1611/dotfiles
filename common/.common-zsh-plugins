@@ -1,0 +1,12 @@
+# Common Plugins for "oh my zsh"
+common_zsh_plugins=(
+  git
+  yarn
+  npm
+  ng
+  colored-man-pages 
+  httpie
+  mvn
+  urltools
+  colorize
+)

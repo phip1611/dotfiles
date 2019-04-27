@@ -1,20 +1,14 @@
-# This is Git's per-user configuration file.
-
+[include]
+  # der Pfad muss von ~ ausgehen
+  path = dotfiles/common/.common-gitconfig
 [user]
-    name = Philipp Schuster
-    email = phip1611@gmail.com
-    signingkey = 51AB92A357A5EB4B
+  signingkey = 51AB92A357A5EB4B
 [push]
-    default = simple
-
-[alias]
-    hist = log --graph --decorate --oneline
+  default = simple
 [core]
-    autocrlf = input
+  autocrlf = input
 [commit]
-    gpgsign = true
+  gpgsign = true
 [gpg]
-    program = gpg
-[pull]
-    rebase = true
+  program = gpg
 

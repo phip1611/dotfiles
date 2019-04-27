@@ -1,0 +1,14 @@
+# JSON
+alias parse_json='python -m json.tool | pygmentize -l JSON'
+alias colorize_json='pygmentize -l JSON'
+
+#pdfgrep:
+#  i: ignore case
+#  H: include file name
+#  n: page number
+#  C -0: nur Zeile mit vorkommen ausgeben
+alias pdfgrepx='pdfgrep -iHn -C 0'
+
+# IMAGE
+# zum Anzeigen der EXIF Infos: es muss der Dateiname folgen (imagemagick muss installiert sein)
+alias readexif='identify -format "%[EXIF:*]"'

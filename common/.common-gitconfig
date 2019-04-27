@@ -1,0 +1,13 @@
+# Common Git Config
+
+[user]
+    name  = Philipp Schuster
+    email = phip1611@gmail.com
+
+[alias]
+    hist = log --graph --decorate --oneline
+[core]
+    editor = micro
+[pull]
+    rebase = true
+

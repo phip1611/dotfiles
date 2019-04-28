@@ -3,4 +3,3 @@
 # GPS-Keys usw rein. 
 [include]
   path = dotfiles/common/.common-gitconfig
-  

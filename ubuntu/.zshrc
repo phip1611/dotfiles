@@ -17,6 +17,4 @@ source $ZSH/oh-my-zsh.sh
 ##########################
 source ~/dotfiles/common/.common-alias
 # User specific stuff (alias and stuff)
-
-
-
+source ~/.zshrc-ms # ms: Machine specific

@@ -1,8 +1,9 @@
 # see "oh my zsh" on google for more details and help!
-export ZSH=/home/phip1611/.oh-my-zsh
+user=$(whoami)
+export ZSH=/home/${user}/.oh-my-zsh
 
 # username@machine im "agnoster" theme entfernen
-DEFAULT_USER=phip1611
+DEFAULT_USER=${user}
 ZSH_THEME="agnoster"
 
 source ~/dotfiles/common/.common-zsh-plugins

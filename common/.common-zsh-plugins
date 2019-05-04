@@ -9,4 +9,6 @@ common_zsh_plugins=(
   mvn
   urltools
   colorize
+  zsh-syntax-highlighting
+  zsh-autosuggestions
 )

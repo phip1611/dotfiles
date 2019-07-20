@@ -1,15 +1,15 @@
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/phip1611/.oh-my-zsh"
+export ZSH="/Users/$(whoami)/.oh-my-zsh"
 
 # username@machine im "agnoster" theme entfernen
-DEFAULT_USER=phip1611
+DEFAULT_USER=$(whoami)
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="agnoster"
 
 source ~/dotfiles/common/.common-zsh-plugins
 plugins=(
   # TODO add plugins
-  
+  osx  
 ) # alle extrahieren und anhängen
 plugins+=("${common_zsh_plugins[@]}")
 
@@ -29,3 +29,6 @@ export HOMEBREW_EDITOR=micro
 # GNU BIN UTILS
 # falls ich die mal brauchen sollte
 #export PATH="/usr/local/opt/binutils/bin:$PATH"
+
+# cargo, rust, rustup (not installed with brew)
+export PATH="$HOME/.cargo/bin:$PATH"

@@ -12,3 +12,7 @@ alias pdfgrepx='pdfgrep -iHn -C 0'
 # IMAGE
 # zum Anzeigen der EXIF Infos: es muss der Dateiname folgen (imagemagick muss installiert sein)
 alias readexif='identify -format "%[EXIF:*]"'
+
+# TAR
+alias untar='tar -zxvf'
+

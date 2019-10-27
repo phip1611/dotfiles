@@ -1,3 +1,4 @@
+
 [include]
   # der Pfad muss von ~ ausgehen
   path = dotfiles/common/.common-gitconfig
@@ -5,8 +6,6 @@
   signingkey = 51AB92A357A5EB4B
 [push]
   default = simple
-[core]
-  autocrlf = input
 [commit]
   gpgsign = true
 [gpg]

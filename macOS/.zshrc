@@ -9,7 +9,9 @@ ZSH_THEME="agnoster"
 source ~/dotfiles/common/.common-zsh-plugins
 plugins=(
   # TODO add plugins
-  osx  
+  osx
+  docker
+  docker-compose
 ) # alle extrahieren und anhängen
 plugins+=("${common_zsh_plugins[@]}")
 
@@ -32,3 +34,6 @@ export HOMEBREW_EDITOR=micro
 
 # cargo, rust, rustup (not installed with brew)
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# since adopt open jdk is used the var is not automatically set
+JAVA_HOME=$(/usr/libexec/java_home)

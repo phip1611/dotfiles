@@ -1,0 +1,5 @@
+# Das hier soll nur als Snippet dienen, wie man die ~/.gitconfig in der jeweiligen Ubuntu-Konfiguration
+# erweitern sollte. Da dieser Ordner allgemein ist, sollen hier keine Maschinenspeziefischen Dinge wie
+# GPS-Keys usw rein. 
+[include]
+  path = dotfiles/common/.common-gitconfig

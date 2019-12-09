@@ -16,3 +16,8 @@ alias readexif='identify -format "%[EXIF:*]"'
 # TAR
 alias untar='tar -zxvf'
 
+# OVERWRITE SOME OH MY ZSH ALIASES
+alias ls='ls --time-style="+%Y-%m-%d %H:%M:%S" -lhF --color=tty'
+  # yyyy-MM-dd hh:mm:ss Zeitformat
+  # l: long; h: Human Readable Byte Sizes; F: File Indicator (Slash am Ende usw)
+  # oh-my-zsh aliases (l, ll) will use this

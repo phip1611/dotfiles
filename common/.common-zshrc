@@ -1,0 +1,16 @@
+# see "oh my zsh" on google for more details and help!
+export ZSH=~/.oh-my-zsh
+
+# this way e.g. chrontab uses micro
+EDITOR=$(which micro)
+# remove username@machine in oh-my-zsh "agnoster" theme 
+DEFAULT_USER=$(whoami)
+ZSH_THEME="agnoster"
+
+# User specific stuff (alias and stuff)
+MACHINE_SPECIFIC_FILE=~/.zshrc-ms
+if [ !-f "$MACHINE_SPECIFIC_FILE" ]; then
+  echo "File ~$MACHINE_SPECIFIC_FILE for machine specific stuff outside of the dotfiles repo has been created!"
+  touch $MACHINE_SPECIFIC_FILE
+fi
+source ~/.zshrc-ms # ms: Machine specific

@@ -1,0 +1,3 @@
+[include]
+  # path starts at "~"
+  path = dotfiles/common/.common-gitconfig

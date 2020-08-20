@@ -1,6 +1,6 @@
 # JSON
-alias parse_json='python -m json.tool | pygmentize -l JSON'
-alias colorize_json='pygmentize -l JSON'
+alias colorize_json='pygmentize -l JSON' # as pipe destination
+alias parse_json='python -m json.tool | colorize_json'
 
 #pdfgrep:
 #  i: ignore case
@@ -21,3 +21,7 @@ alias ls='ls --time-style="+%Y-%m-%d %H:%M:%S" -lhF --color=tty'
   # yyyy-MM-dd hh:mm:ss Zeitformat
   # l: long; h: Human Readable Byte Sizes; F: File Indicator (Slash am Ende usw)
   # oh-my-zsh aliases (l, ll) will use this
+
+# Exa is like a modern ls: this options here produce almost the same output as the one above
+# but exa has much more colors
+alias exa='exa -lFag --time-style=long-iso'

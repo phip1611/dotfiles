@@ -9,7 +9,7 @@ ZSH_THEME="agnoster"
 
 # User specific stuff (alias and stuff)
 MACHINE_SPECIFIC_FILE=~/.zshrc-ms
-if [ !-f "$MACHINE_SPECIFIC_FILE" ]; then
+if [ ! -f "$MACHINE_SPECIFIC_FILE" ]; then
   echo "File ~$MACHINE_SPECIFIC_FILE for machine specific stuff outside of the dotfiles repo has been created!"
   touch $MACHINE_SPECIFIC_FILE
 fi

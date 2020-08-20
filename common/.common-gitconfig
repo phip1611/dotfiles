@@ -14,13 +14,21 @@
     editor = micro
 [pull]
     rebase = true
+# allows highlightning in git diff that shows better what blocks have been moved
+# git-delta works with this, but could couse problems: check https://github.com/dandavison/delta (readme)
+# the advantage is that there are no deleted/new lines but you can better see they have been moved
+[diff]
+    colorMoved = default
 
 
 # Config related to delta: https://github.com/dandavison/delta
+# I took the configuration from the README
 [core]
     pager = delta
-[interactive]
-    diffFilter = delta --color-only
+# I don't want this because in this case "git diff" is just printed to stdout without being
+# inside the pager; I prefer it inside the pager
+#[interactive]
+#    diffFilter = delta --color-only
 [delta]
     features = side-by-side line-numbers decorations
     whitespace-error-style = 22 reverse

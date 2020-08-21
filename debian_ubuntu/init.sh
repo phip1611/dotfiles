@@ -29,7 +29,7 @@ function onConfirmed {
     ln -fs $ABS_DIR_PATH/.vimrc ~
     cp -f $ABS_DIR_PATH/.gitconfig-template ~/.gitconfig
 
-    source ~/.zshrc
+    echo "execute: 'source ~/.zshrc'"
 }
 
 while true; do

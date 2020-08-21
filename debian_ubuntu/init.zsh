@@ -5,16 +5,9 @@
 # this creates simlinks into "~" to use the dotfiles.
 
 
-# I wanted to verify that this is only run with BASH or ZSH but
-# this doesn't work because the verification doesn't run in sh :D
-# because when SH runs it executes ln -fs without confirmation
-#PID=$$
-#EXECUTING_SHELL_PATH=$(readlink /proc/$PID/exe)
-#if [[ ! EXECUTING_SHELL_PATH == *"zsh" ]] || [[ ! EXECUTING_SHELL_PATH == *"bash" ]]; then
-#  echo "Please use bash or zsh to execute this file!"
-#fi
-
-# we wan't to get the absolute path to this file
+# we wan't to get the absolute path to this file so that we can run
+# this also from another directory; even if here stands bash,
+# zsh works with this
 ABS_DIR_PATH=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 
 sh ~/dotfiles/common/install-zsh-users-plugins.sh

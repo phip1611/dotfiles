@@ -25,13 +25,13 @@
 # I took the configuration from the README
 [core]
     pager = delta
-# I don't want this because in this case "git diff" is just printed to stdout without being
-# inside the pager; I prefer it inside the pager
-#[interactive]
-#    diffFilter = delta --color-only
+[interactive]
+    diffFilter = delta --color-only
 [delta]
+    # see https://github.com/dandavison/delta for options
     features = side-by-side line-numbers decorations
     whitespace-error-style = 22 reverse
+    paging = always # I prefer always paging for git diff
 [delta "decorations"]
     commit-decoration-style = bold yellow box ul
     file-style = bold yellow ul

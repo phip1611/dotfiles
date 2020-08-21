@@ -3,5 +3,7 @@ cd /tmp
 git clone https://github.com/ogham/exa.git
 cd exa
 #sudo make install  doesn't work because cargo is only installed for the user
-sudo mv target/release/exa /usr/local/bin
+cargo build --release
+sudo make install-man
+sudo cp target/release/exa /usr/local/bin
 # file will be placed in /usr/local/bin

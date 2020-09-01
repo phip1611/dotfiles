@@ -11,6 +11,6 @@ ZSH_THEME="agnoster"
 MACHINE_SPECIFIC_FILE=~/.zshrc-ms
 if [ ! -f "$MACHINE_SPECIFIC_FILE" ]; then
   echo "File ~$MACHINE_SPECIFIC_FILE for machine specific stuff outside of the dotfiles repo has been created!"
-  touch $MACHINE_SPECIFIC_FILE
+  echo "# add machine specific zsh configurations, aliases or env vars here - they are not part of the dotfiles repository\n\n" > $MACHINE_SPECIFIC_FILE
 fi
 source ~/.zshrc-ms # ms: Machine specific

@@ -13,4 +13,11 @@ common_zsh_plugins=(
   zsh-autosuggestions
   # rust
   cargo
+  rust
+  rustup
+  
+  ripgrep
+
+  docker
+  docker-compose
 )

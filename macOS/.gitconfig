@@ -1,9 +1,10 @@
-
 [include]
   # der Pfad muss von ~ ausgehen
   path = dotfiles/common/.common-gitconfig
 [user]
-  signingkey = 51AB92A357A5EB4B
+# I lost my old GPG key since I reinstalled my mac :(
+#  signingkey = 51AB92A357A5EB4B
+   signingkey = BC43C4A83BD2075A
 [push]
   default = simple
 [commit]

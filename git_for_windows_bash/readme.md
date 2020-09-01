@@ -1,4 +1,2 @@
-Das Symlinken geht für Files nicht unter Windows,
-darum müssen die Dateien stupide in ~ gecopied und gepastet
-werden.
-
+Copy these files (no symlink) into ~ of the Windows user (no symlink on Windows).
+They are for the bash environment that "git for windows" comes with.

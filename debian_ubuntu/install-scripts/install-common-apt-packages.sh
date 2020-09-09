@@ -20,6 +20,7 @@ PACKAGES=(
   xclip
   'net-tools'
   ripgrep
+  htop
 )
 
 

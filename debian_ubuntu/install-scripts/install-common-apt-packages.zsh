@@ -21,6 +21,7 @@ PACKAGES=(
   'net-tools'
   ripgrep
   htop
+  tldr
 )
 
 

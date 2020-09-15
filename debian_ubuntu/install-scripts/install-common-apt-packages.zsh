@@ -8,6 +8,7 @@ echo "Installs Common Utils I use on debian/ubuntu systems"
 PACKAGES=(
   git
   build-essential
+  valgrind
   curl
   micro
   bat

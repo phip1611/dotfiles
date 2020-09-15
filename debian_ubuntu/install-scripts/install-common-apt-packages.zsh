@@ -30,7 +30,7 @@ do
     echo "##################################" 
     echo "## INSTALLING PACKAGE: $i"
     echo 
-    sudo apt install $i
+    sudo apt install $i -y
 done
 
 # python3 pygments is for oh-my-zsh plugin "colorize" 

@@ -27,3 +27,6 @@ alias l='ll'
 # Exa is like a modern ls: this options here produce almost the same output as the one above
 # but exa has much more colors
 alias exa='exa -lFagh --time-style=long-iso'
+
+# rust
+alias cargo-check='cargo check --color=always 2>&1 | less'

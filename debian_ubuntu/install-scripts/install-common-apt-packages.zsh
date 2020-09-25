@@ -1,9 +1,10 @@
 #!/usr/bin/zsh
 
 echo "Installs Common Utils I use on debian/ubuntu systems"
+echo "Installs only non-rust binaries. These are installed via cargo"
 
 # install packages one by one because otherwise the whole command fails if
-# a single package (like micro, bat) is not available
+# a single package is not available
 # https://superuser.com/questions/837662/continue-on-error-when-apt-get-encounters-an-install-unable-to-locate-package-is
 PACKAGES=(
   git
@@ -11,7 +12,6 @@ PACKAGES=(
   valgrind
   curl
   micro
-  bat
   cmake
   httpie
   vim

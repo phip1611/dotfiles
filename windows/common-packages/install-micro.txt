@@ -1,0 +1,4 @@
+https://github.com/zyedidia/micro/
+
+Add .exe to C:\Tools\micro
+add to $PATH env var

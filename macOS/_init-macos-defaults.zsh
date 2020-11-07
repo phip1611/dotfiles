@@ -106,6 +106,14 @@ defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 # (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
+###############################################################################
+# Sytem UI
+
+# Show Percent next to battery
+defaults write com.apple.menuextra.battery ShowPercent -string YES
+# Show date and seconds (this is the default string that also Mac OS Settings write here)
+# seems like it can't be customized; mac internally only accepts a subset of all possible values
+defaults write com.apple.menuextra.clock DateFormat -string "EEE d. MMM  HH:mm:ss"
 
 ###############################################################################
 # kill all applications in order for them to get restarted and new settings are used

@@ -33,5 +33,5 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # use openjdk@11 installed by brew cask first in path
-JAVA_HOME=/usr/local/opt/openjdk@11/
+JAVA_HOME=/usr/local/opt/openjdk@11
 export PATH="$JAVA_HOME/bin:$PATH"

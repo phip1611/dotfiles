@@ -42,7 +42,7 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 # Save screenshots not on desktop
 DIR=$HOME/Screenshots
-mkdir $DIR
+mkdir -p $DIR
 defaults write com.apple.screencapture location -string $DIR
 
 
@@ -70,11 +70,6 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 # Avoid creating .DS_Store files on network or USB volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
-# Show the ~/Library folder
-chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
-# Show the /Volumes folder
-sudo chflags nohidden /Volumes
-
 
 ###############################################################################
 # Dock, Dashboard, and hot corners  
@@ -114,6 +109,7 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 ###############################################################################
 # kill all applications in order for them to get restarted and new settings are used
+set +e # don't fail here; can happen if a process is currently not found
 for app in \
 	"cfprefsd" \
 	"Dock" \
@@ -122,4 +118,5 @@ for app in \
 	"SystemUIServer"; do
 	killall "${app}" &> /dev/null
 done
+set -e
 echo "Done. Note that some of these changes require a logout/restart to take effect."

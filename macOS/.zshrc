@@ -32,5 +32,6 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 # cargo, rust, rustup (not installed with brew)
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# since adopt open jdk is used the var is not automatically set
-JAVA_HOME=$(/usr/libexec/java_home)
+# use openjdk@11 installed by brew cask first in path
+JAVA_HOME=/usr/local/opt/openjdk@11/
+export PATH="$JAVA_HOME/bin:$PATH"

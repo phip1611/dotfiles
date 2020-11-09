@@ -12,12 +12,12 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until this script has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-
 brew update && brew upgrade
 
 brew cask install \
     "adobe-acrobat-reader" \
     "clion" \
+    "discord" \
     "docker" \
     "firefox" \
     "gimp" \
@@ -26,8 +26,10 @@ brew cask install \
     "intellij-idea" \
     "istumbler" \
     "iterm2" \
+    "pgadmin4" \
     "postman" \
     "spotify" \
+    "steam" \
     "teamviewer" \
 	"telegram-desktop" \
     "tunnelblick" `#openvpn for tu dresden` \
@@ -38,3 +40,6 @@ brew cask install \
 # virtual box is special because it may requires special consent 
 # by macs system security system
 brew cask install "virtualbox" 
+
+# remove old packages (also from cask)
+brew cleanup

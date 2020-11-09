@@ -15,25 +15,41 @@ brew install micro
 brew install zsh
 
 # install gnu utils
-brew install coreutils findutils gnu-tar gnu-sed gawk gnutls gnu-indent gnu-getopt grep less
+brew install coreutils findutils diffutils
+brew install gnu-tar gnu-sed gawk gnupg gnutls gnu-indent gnu-getopt 
+brew install grep less
 
 # install utils that I also could get from cargo (Rust)
+# this has the advantage that this is faster and automatically updated
+# Cargo downloads and compiles them everytime
 brew install bat exa git-delta
 
 # install build and compile tools
-brew install cmake gcc git maven node yarn
+brew install make cmake gcc git maven node yarn
 
 # install other utils
-brew install calc curl ffmpeg gpg htop ripgrep tldr tree wget 
-
-# install fun stuff
-brew install fortune cowsay lolcat cmatrix
+brew install \
+    calc \
+    curl \
+    ffmpeg \
+    httpie \
+    htop \
+    imagemagick \
+    prettyping `# cool ping alternative` \
+    ripgrep \
+    tldr \
+    tree \
+    webp \
+    wget 
 
 # install java / jdk
 brew install \
     openjdk \
     openjdk@8 \
     openjdk@11
+
+# install fun stuff
+brew install fortune cowsay lolcat cmatrix
 
 ## stuff that I want to experiment with but that's not important
 
@@ -42,3 +58,6 @@ brew install tokei
 
 # modern replacement for "ps"
 brew install procs
+
+# remove old packages (also from cask)
+brew cleanup

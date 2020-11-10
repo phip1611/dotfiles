@@ -4,9 +4,9 @@ set -e
 set -x
 
 EXTRA_MENUS=(
-	# these two are not activated by default
-	"Bluetooth.menu"
-	"Volume.menu"
+    # these two are not activated by default
+    "Bluetooth.menu"
+    "Volume.menu"
 )
 
 # subscript for _init-macos-defaults.zsh
@@ -21,37 +21,37 @@ CURRENT_EXTRA_MENUS=$(defaults read com.apple.systemuiserver menuExtras)
 echo "adding additional icons to SystemUiServer now (icons on the top right in MacOS)"
 for MENU in $EXTRA_MENUS;
 do
-	# -F: interpret pattern as a set of fixed strings
-	# -q: quiet
-	# "<<<" "here string"
-	#  --> redirects string to stdin of process
-	#      useful if command accepts input file name but we have a string
-	#      instead of a file path
-	set +x
-	if grep -Fq "$MENU" <<< "$AVAILABLE_EXTRA_MENUS";
-	then
-		set -x
-		#echo "'$MENU' is in '$AVAILABLE_EXTRA_MENUS_PATH'; great"
-	else
-		set -x
-		echo "'$MENU' is not in '$AVAILABLE_EXTRA_MENUS_PATH'; skipped"
-		continue;
-	fi
-	
-	# -F: interpret pattern as a set of fixed strings
-	# -q: quiet
-	# "<<<" "here string"
-	#  --> redirects string to stdin of process
-	#      useful if command accepts input file name but we have a string
-	#      instead of a file path
-	set +x
-	if grep -Fq "$MENU" <<< "$CURRENT_EXTRA_MENUS";
-	then
-		set -x
-	    echo "'$MENU' ist bereits als Menü konfiguriert"
-	else
-		set -x
-	    echo "'$MENU' appended to SystemUiServer"
-	    defaults write com.apple.systemuiserver menuExtras -array-add "$AVAILABLE_EXTRA_MENUS_PATH/$MENU"
-	fi
+    # -F: interpret pattern as a set of fixed strings
+    # -q: quiet
+    # "<<<" "here string"
+    #  --> redirects string to stdin of process
+    #      useful if command accepts input file name but we have a string
+    #      instead of a file path
+    set +x
+    if grep -Fq "$MENU" <<< "$AVAILABLE_EXTRA_MENUS";
+    then
+        set -x
+        #echo "'$MENU' is in '$AVAILABLE_EXTRA_MENUS_PATH'; great"
+    else
+        set -x
+        echo "'$MENU' is not in '$AVAILABLE_EXTRA_MENUS_PATH'; skipped"
+        continue;
+    fi
+    
+    # -F: interpret pattern as a set of fixed strings
+    # -q: quiet
+    # "<<<" "here string"
+    #  --> redirects string to stdin of process
+    #      useful if command accepts input file name but we have a string
+    #      instead of a file path
+    set +x
+    if grep -Fq "$MENU" <<< "$CURRENT_EXTRA_MENUS";
+    then
+        set -x
+        echo "'$MENU' ist bereits als Menü konfiguriert"
+    else
+        set -x
+        echo "'$MENU' appended to SystemUiServer"
+        defaults write com.apple.systemuiserver menuExtras -array-add "$AVAILABLE_EXTRA_MENUS_PATH/$MENU"
+    fi
 done

@@ -127,12 +127,12 @@ zsh ./_init-macos-defaults-extra-menus.zsh
 # kill all applications in order for them to get restarted and new settings are used
 set +e # don't fail here; can happen if a process is currently not found
 for app in \
-	"cfprefsd" \
-	"Dock" \
-	"Finder" \
-	"Photos" \
-	"SystemUIServer"; do
-	killall "${app}" &> /dev/null
+    "cfprefsd" \
+    "Dock" \
+    "Finder" \
+    "Photos" \
+    "SystemUIServer"; do
+    killall "${app}" &> /dev/null
 done
 set -e
 echo "Done. Note that some of these changes require a logout/restart to take effect."

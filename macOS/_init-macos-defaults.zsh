@@ -115,6 +115,14 @@ defaults write com.apple.menuextra.battery ShowPercent -string YES
 # seems like it can't be customized; mac internally only accepts a subset of all possible values
 defaults write com.apple.menuextra.clock DateFormat -string "EEE d. MMM  HH:mm:ss"
 
+# now let's add some extra menus that are not overed by 
+# com.apple.menuextra.* and not displayed by default
+# (these are the small icons on the top right, that give 
+# quick access to bluetooth, volume etc.)
+# available ones can be found here
+# $ ls "/System/Library/CoreServices/Menu Extras" 
+zsh ./_init-macos-defaults-extra-menus.zsh
+
 ###############################################################################
 # kill all applications in order for them to get restarted and new settings are used
 set +e # don't fail here; can happen if a process is currently not found

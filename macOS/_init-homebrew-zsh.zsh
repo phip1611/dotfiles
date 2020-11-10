@@ -10,12 +10,16 @@ brew install zsh
 
 
 set +x
+# -F: interpret pattern as a set of fixed strings
+# -x: die ganze line muss gegen den Wert matchen
+# -q: quiet
 if grep -Fxq "$BREW_ZSH_LOCATION" "/etc/shells";
 then
+	set -x
     echo "'$BREW_ZSH_LOCATION' (zsh by brew) is already in /etc/shells"
 else
+	set -x
     echo "append '$BREW_ZSH_LOCATION' (zsh by brew) to /etc/shells"
-    set -x
     sudo sh -c "echo $BREW_ZSH_LOCATION >> /etc/shells"
 fi
 

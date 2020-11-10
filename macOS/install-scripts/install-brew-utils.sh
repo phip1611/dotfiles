@@ -22,6 +22,7 @@ brew install grep less
 # install utils that I also could get from cargo (Rust)
 # this has the advantage that this is faster and automatically updated
 # Cargo downloads and compiles them everytime
+#   - git delta ("delta") is configured as pager of git 
 brew install bat exa git-delta
 
 # install build and compile tools

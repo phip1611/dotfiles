@@ -87,7 +87,7 @@ defaults write com.apple.dock tilesize -int 46
 
 # Install the Solarized Dark theme for iTerm
 # it still needs to be configured manually
-open "${HOME}/dotfiles/macOS/res/iterm2-solarized-dark-adjusted.itermcolors"
+open "./res/iterm2-colors-solarized-dark-custom.itermcolors"
 
 # Don’t display the annoying prompt when quitting iTerm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false

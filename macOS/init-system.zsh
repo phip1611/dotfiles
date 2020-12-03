@@ -16,6 +16,8 @@ if ! type "rustup" > /dev/null; then
   sh ./install-scripts/install-rustup.sh
 fi
 
+sh ./install-scripts/install-cargo-utils.sh
+
 zsh ./_init-homebrew-zsh.zsh
 zsh ./_init-macos-defaults.zsh
 

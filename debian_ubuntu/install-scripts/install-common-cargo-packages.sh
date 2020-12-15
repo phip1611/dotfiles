@@ -1,4 +1,4 @@
 echo "make sure rustup/rust/cargo is installed"
-echo "cargo acts also as package manager (for the local user only I think) :)"
+echo "cargo acts also as package manager (for the local user only) :)"
 
-cargo install cargo-expand bat git-delta exa
+cargo install cargo-expand cargo-outdated cargo-update bat git-delta exa wambo 

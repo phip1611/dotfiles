@@ -1,1 +1,1 @@
-cargo install cargo-expand git-delta bat cargo-update wambo cargo-outdated
+cargo install cargo-expand cargo-outdated cargo-update bat git-delta tokei wambo

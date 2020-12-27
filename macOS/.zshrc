@@ -28,6 +28,8 @@ export HOMEBREW_EDITOR=micro
 
 # Gnu Core Utils (like ls)
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+# GNU find utils (like find)
+export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
 
 # cargo, rust, rustup (not installed with brew)
 export PATH="$HOME/.cargo/bin:$PATH"

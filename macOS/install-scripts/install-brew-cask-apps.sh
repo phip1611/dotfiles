@@ -14,7 +14,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 brew update && brew upgrade
 
-brew cask install \
+brew install --cask \
     "adobe-acrobat-reader" \
     "clion" \
     "discord" \
@@ -28,6 +28,7 @@ brew cask install \
     "iterm2" \
     "pgadmin4" \
     "postman" \
+    "signal" \
     "spotify" \
     "steam" \
     "teamviewer" \
@@ -39,7 +40,7 @@ brew cask install \
 
 # virtual box is special because it may requires special consent 
 # by macs system security system
-brew cask install "virtualbox" 
+brew install --cask "virtualbox" 
 
 # remove old packages (also from cask)
 brew cleanup

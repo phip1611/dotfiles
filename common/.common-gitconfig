@@ -20,6 +20,8 @@
 [diff]
     colorMoved = default
 
+[init]
+	defaultBranch = main
 
 # Config related to delta: https://github.com/dandavison/delta
 # I took the configuration from the README

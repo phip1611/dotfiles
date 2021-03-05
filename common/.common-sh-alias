@@ -30,3 +30,7 @@ alias exa='exa -lFagh --time-style=long-iso'
 
 # rust
 alias cargo-check='cargo check --color=always 2>&1 | less'
+
+# sudo please
+alias plz='sudo'
+alias please='sudo'

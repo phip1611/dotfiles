@@ -3,7 +3,7 @@
 
 echo "make sure brew/homebrew is installed!"
 
-set -e 
+set -e
 set -x
 
 brew update && brew upgrade
@@ -16,13 +16,13 @@ brew install zsh
 
 # install gnu utils
 brew install coreutils findutils diffutils
-brew install gnu-tar gnu-sed gawk gnupg gnutls gnu-indent gnu-getopt 
+brew install gnu-tar gnu-sed gawk gnupg gnutls gnu-indent gnu-getopt
 brew install grep less
 
 # install utils that I also could get from cargo (Rust)
 # this has the advantage that this is faster and automatically updated
 # Cargo downloads and compiles them everytime
-#   - git delta ("delta") is configured as pager of git 
+#   - git delta ("delta") is configured as pager of git
 brew install bat exa git-delta
 
 # install build and compile tools
@@ -41,13 +41,17 @@ brew install \
     tldr \
     tree \
     webp \
-    wget 
+    wget
 
 # install java / jdk
 brew install \
     openjdk \
     openjdk@8 \
     openjdk@11
+
+# set up openjdk in a way that the Mac OS Java System Wrapper can find it
+# to find this command, exec: `$ brew info openjdk@11`
+sudo ln -sfn /usr/local/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
 
 # install fun stuff
 brew install fortune cowsay lolcat cmatrix

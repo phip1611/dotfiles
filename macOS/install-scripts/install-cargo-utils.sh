@@ -4,7 +4,18 @@
 echo "Installs common cargo binaries"
 echo "make sure rustup/cargo is installed!"
 
-cargo install mac-sys-info cargo-expand cargo-update cargo-outdated nflz wambo
+cargo install \
+    cargo-expand \
+    cargo-outdated \
+    cargo-update \
+    bat \
+    git-delta \
+    exa \
+    nflz \
+    nu \
+    paper \
+    tokei \
+    wambo 
 
 set -e 
 set -x

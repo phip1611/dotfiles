@@ -1,1 +1,13 @@
-cargo install cargo-expand cargo-outdated cargo-update bat git-delta tokei nflz wambo
+Multiline Command for Windows CMD, not for Powershell!
+
+cargo install ^
+    cargo-expand ^
+    cargo-outdated ^
+    cargo-update ^
+    bat ^
+    git-delta ^
+    nflz ^
+    nu ^
+    paper ^
+    tokei ^
+    wambo

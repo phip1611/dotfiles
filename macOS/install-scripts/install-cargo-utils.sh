@@ -5,6 +5,7 @@ echo "Installs common cargo binaries"
 echo "make sure rustup/cargo is installed!"
 
 cargo install \
+    ansi-escape-sequences-cli \
     cargo-expand \
     cargo-outdated \
     cargo-update \

@@ -1,6 +1,7 @@
 Multiline Command for Windows CMD, not for Powershell!
 
 cargo install ^
+    ansi-escape-sequences-cli ^
     cargo-expand ^
     cargo-outdated ^
     cargo-update ^

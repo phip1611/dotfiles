@@ -14,7 +14,7 @@ cargo install \
     exa \
     nflz \
     nu \
-    paper \
+    paper-terminal \
     tokei \
     wambo 
 

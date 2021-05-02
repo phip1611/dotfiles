@@ -9,6 +9,6 @@ cargo install ^
     git-delta ^
     nflz ^
     nu ^
-    paper ^
+    paper-terminal ^
     tokei ^
     wambo

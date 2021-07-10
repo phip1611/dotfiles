@@ -14,3 +14,6 @@ source $ZSH/oh-my-zsh.sh
 
 # aliases after ZSHs aliases is set:
 source ~/dotfiles/common/.common-sh-alias
+
+# similar to "open" on MacOS
+alias open=xdg-open

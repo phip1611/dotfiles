@@ -12,5 +12,6 @@ cargo install \
     nflz \
     nu \
     paper-terminal \
+    ttfb \
     tokei \
     wambo 

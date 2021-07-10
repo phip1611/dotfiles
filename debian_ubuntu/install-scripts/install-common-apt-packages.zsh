@@ -10,6 +10,7 @@ PACKAGES=(
   git
   build-essential
   valgrind
+  calc
   curl
   micro
   cmake
@@ -23,6 +24,8 @@ PACKAGES=(
   ripgrep
   htop
   tldr
+  # required by my Rust tools
+  libssl-dev
 )
 
 

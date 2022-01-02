@@ -11,10 +11,9 @@ common_zsh_plugins=(
   colorize
   zsh-syntax-highlighting
   zsh-autosuggestions
-  # rust
-  cargo
+
+  # rustc, cargo, rustup
   rust
-  rustup
   
   ripgrep
 

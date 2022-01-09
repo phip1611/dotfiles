@@ -6,11 +6,17 @@ echo "make sure rustup/cargo is installed!"
 
 cargo install \
     ansi-escape-sequences-cli \
+    bat \
+    bottom \
     cargo-expand \
+    cargo-license \
+    cargo-msrv \
     cargo-outdated \
     cargo-update \
-    bat \
+    cargo-watch \
+    du-dust \
     git-delta \
+    gitui \
     exa \
     nflz \
     nu \

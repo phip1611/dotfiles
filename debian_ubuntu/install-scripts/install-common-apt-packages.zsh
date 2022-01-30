@@ -12,11 +12,10 @@ PACKAGES=(
   valgrind
   calc
   curl
-  micro
   cmake
   httpie
   vim
-  tree 
+  tree
   'python3-pygments'
   'python3-pip'
   xclip
@@ -24,19 +23,23 @@ PACKAGES=(
   ripgrep
   htop
   tldr
-  # required by my Rust tools
+
+  # Required by some Rust binaries, like cargo-outdate
+  # but also many other tools, when they get build.
+  openssl
   libssl-dev
+  pkg-config
 )
 
 
 sudo apt update
 for i in "${PACKAGES[@]}"
 do
-    echo "##################################" 
+    echo "##################################"
     echo "## INSTALLING PACKAGE: $i"
-    echo 
+    echo
     sudo apt install $i -y
 done
 
-# python3 pygments is for oh-my-zsh plugin "colorize" 
+# python3 pygments is for oh-my-zsh plugin "colorize"
 # note that bat may be installed as "batcat" (https://github.com/sharkdp/bat)

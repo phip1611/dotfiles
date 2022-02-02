@@ -29,6 +29,13 @@ PACKAGES=(
   openssl
   libssl-dev
   pkg-config
+
+  # Required to compile Linux (5.13 +)
+  libncurses-dev
+  flex
+  bison
+  libelf-dev
+  dwarves
 )
 
 

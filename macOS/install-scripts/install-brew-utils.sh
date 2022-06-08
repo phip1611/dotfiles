@@ -8,6 +8,10 @@ set -x
 
 brew update && brew upgrade
 
+### INFO
+# All utilities available on crates.io are installed from there
+# and not through brew.
+
 # install a convenient terminal editor first
 brew install micro
 
@@ -18,12 +22,6 @@ brew install zsh
 brew install coreutils findutils diffutils
 brew install gnu-tar gnu-sed gawk gnupg gnutls gnu-indent gnu-getopt
 brew install grep less
-
-# install utils that I also could get from cargo (Rust)
-# this has the advantage that this is faster and automatically updated
-# Cargo downloads and compiles them everytime
-#   - git delta ("delta") is configured as pager of git
-brew install bat exa git-delta
 
 # install build and compile tools
 brew install make cmake gcc git maven node yarn
@@ -39,6 +37,7 @@ brew install \
     prettyping `# cool ping alternative` \
     ripgrep \
     tldr \
+    tmux \
     tree \
     webp \
     wget
@@ -56,13 +55,8 @@ sudo ln -sfn /usr/local/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVir
 # install fun stuff
 brew install fortune cowsay lolcat cmatrix
 
-## stuff that I want to experiment with but that's not important
-
-# cool statistics about code: https://github.com/xampprocky/tokei
-brew install tokei
-
 # modern replacement for "ps"
 brew install procs
 
-# remove old packages (also from cask)
+# remove old packages
 brew cleanup

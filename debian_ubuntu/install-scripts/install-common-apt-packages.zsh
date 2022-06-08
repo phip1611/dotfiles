@@ -7,35 +7,38 @@ echo "Installs only non-rust binaries. These are installed via cargo"
 # a single package is not available
 # https://superuser.com/questions/837662/continue-on-error-when-apt-get-encounters-an-install-unable-to-locate-package-is
 PACKAGES=(
-  git
   build-essential
-  valgrind
   calc
-  curl
   cmake
+  curl
+  git
+  htop
   httpie
-  vim
-  tree
+  'net-tools'
   'python3-pygments'
   'python3-pip'
-  xclip
-  'net-tools'
   ripgrep
-  htop
   tldr
+  tree
+  valgrind
+  xclip
+  vim
 
   # Required by some Rust binaries, like cargo-outdate
   # but also many other tools, when they get build.
-  openssl
+  libftdi1-dev
   libssl-dev
+  libusb-1.0-0-dev
   pkg-config
+  openssl
 
   # Required to compile Linux (5.13 +)
-  libncurses-dev
-  flex
   bison
-  libelf-dev
+  flex
   dwarves
+  libncurses-dev
+  libelf-dev
+  zstd 
 )
 
 

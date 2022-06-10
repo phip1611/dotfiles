@@ -6,7 +6,7 @@ source ~/dotfiles/common/.common-zshrc
 
 # add plugins only useful on ubuntu/debian
 plugins=(
-	nix-shell  
+ 
 ) # extend common plugins
 plugins+=("${common_zsh_plugins[@]}")
 # Register Plugins and Theme @ Oh My ZSH + general oh my zsh init
@@ -17,3 +17,4 @@ source ~/dotfiles/common/.common-sh-alias
 
 # similar to "open" on MacOS
 alias open=xdg-open
+

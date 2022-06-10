@@ -9,8 +9,6 @@ common_zsh_plugins=(
   mvn
   urltools
   colorize
-  zsh-syntax-highlighting
-  zsh-autosuggestions
 
   # rustc, cargo, rustup
   rust
@@ -19,4 +17,13 @@ common_zsh_plugins=(
 
   docker
   docker-compose
+
+  # those are not plugins supported by zsh per default but 
+  # external plugins. They get initialized by a dedicated shell
+  # script. Behind the scenes, these are just git repositories 
+  # cloned into the "oh my zsh" custom plugins folder
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  nix-shell
+  nix-zsh-completions
 )

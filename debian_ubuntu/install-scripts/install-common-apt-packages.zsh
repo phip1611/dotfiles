@@ -19,10 +19,14 @@ PACKAGES=(
   'python3-pip'
   ripgrep
   tldr
+  tmux
   tree
   valgrind
   xclip
   vim
+
+  # required for some oh-my-zsh prompts
+  fonts-powerline
 
   # Required by some Rust binaries, like cargo-outdate
   # but also many other tools, when they get build.

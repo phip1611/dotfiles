@@ -1,3 +1,5 @@
 [include]
   # path starts at "~"
   path = dotfiles/common/.common-gitconfig
+  # Machine specific stuff; out of repo
+  path = .gitconfig.local

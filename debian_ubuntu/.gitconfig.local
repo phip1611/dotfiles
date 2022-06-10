@@ -1,0 +1,5 @@
+# Use this file for local gitconfig entries specific for this machine.
+# This file will never be overwritten by my magic dotfile scripts.
+
+# [user]
+#   email = name@company.tld

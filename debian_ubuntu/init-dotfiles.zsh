@@ -14,16 +14,17 @@ sh ~/dotfiles/common/install-zsh-users-plugins.sh
 
 echo "This script will create links for all dotfiles in $ABS_DIR_PATH to $HOME."
 echo "Existing files will be deleted. Following files would be included:"
+echo "  .alacritty.yml      => ~/.alacritty.yml"
 echo "  .gitconfig-template => ~/.gitconfig"
-echo "  .tmux.conf => ~/.tmux.conf"
-echo "  .vimrc => ~/.vimrc"
-echo "  .zshrc => ~/.zshrc"
-
+echo "  .tmux.conf          => ~/.tmux.conf"
+echo "  .vimrc              => ~/.vimrc"
+echo "  .zshrc              => ~/.zshrc"
 
 read "response?Are you sure ? [Y/n] "
 response=${response:l} #tolower
 if [[ $response =~ ^(yes|y| ) ]] || [[ -z $response ]]; then
     cp -f $ABS_DIR_PATH/.gitconfig-template ~/.gitconfig
+    ln -fs $ABS_DIR_PATH/.alacritty.yml ~
     ln -fs $ABS_DIR_PATH/.tmux.conf ~
     ln -fs $ABS_DIR_PATH/.vimrc ~
     ln -fs $ABS_DIR_PATH/.zshrc ~

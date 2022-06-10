@@ -5,6 +5,7 @@ echo "Installs common cargo binaries"
 echo "make sure rustup/cargo is installed!"
 
 cargo install \
+    alacritty \
     ansi-escape-sequences-cli \
     bat \
     bottom \

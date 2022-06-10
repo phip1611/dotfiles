@@ -2,6 +2,7 @@ Multiline Command for Windows CMD, not for Powershell!
 
 
 cargo install ^
+    alacritty ^
     ansi-escape-sequences-cli ^
     bat ^
     bottom ^

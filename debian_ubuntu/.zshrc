@@ -12,7 +12,7 @@ plugins+=("${common_zsh_plugins[@]}")
 # Register Plugins and Theme @ Oh My ZSH + general oh my zsh init
 source $ZSH/oh-my-zsh.sh
 
-# aliases after ZSHs aliases is set:
+# aliases after ZSHs aliases are set:
 source ~/dotfiles/common/.common-sh-alias
 
 # similar to "open" on MacOS

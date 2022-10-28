@@ -10,10 +10,17 @@
     # really cool, powerful hist command
     hist2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
     hist2all = hist2 --all
+
 [core]
     editor = micro
+
+[push]
+    # Since Git 2.37: no more "git push --set-upstream origin example"
+	autoSetupRemote = true
+
 [pull]
     rebase = true
+
 # allows highlightning in git diff that shows better what blocks have been moved
 # git-delta works with this, but could couse problems: check https://github.com/dandavison/delta (readme)
 # the advantage is that there are no deleted/new lines but you can better see they have been moved
@@ -27,13 +34,16 @@
 # I took the configuration from the README
 [core]
     pager = delta
+
 [interactive]
     diffFilter = delta --color-only
+
 [delta]
     # see https://github.com/dandavison/delta for options
     features = side-by-side line-numbers decorations
     whitespace-error-style = 22 reverse
     paging = always # I prefer always paging for git diff
+
 [delta "decorations"]
     commit-decoration-style = bold yellow box ul
     file-style = bold yellow ul

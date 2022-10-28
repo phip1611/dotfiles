@@ -1,0 +1,22 @@
+# Initialize zplug. zplug automatically downloads external ZSH plugins that
+# are not shipped with oh-my-zsh.
+#
+# DO NOT use the name ZPLUG_HOME for this. This is something different!
+source "$ZPLUG_RES/init.zsh"
+
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "chisui/zsh-nix-shell"
+zplug "spwhitt/nix-zsh-completions"
+
+# zplug "zsh-users/zsh-completions"
+
+MSG=$(zplug install 2>&1)
+
+# do not annoy with this message each time my shell starts
+if [[ "$MSG" != "[zplug] no packages to install" ]]
+then
+    echo "$MSG"
+fi
+
+zplug load

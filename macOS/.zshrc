@@ -37,3 +37,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # use openjdk@11 installed by brew cask first in path
 JAVA_HOME=/usr/local/opt/openjdk@11
 export PATH="$JAVA_HOME/bin:$PATH"
+
+# The debian package "zplug" stores the package files here.
+echo "TODO FIX ZPLUG RES DIR"
+export ZPLUG_RES=/usr/share/zplug
+# source ~/dotfiles/common/.common-zplug

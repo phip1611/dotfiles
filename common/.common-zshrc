@@ -4,7 +4,7 @@ export ZSH=~/.oh-my-zsh
 # this way e.g. chrontab uses micro
 EDITOR=$(which micro) # EDITOR is light-weight terminal editor (but should be nowadays also be always fine)
 VISUAL=$(which micro) # VISUAL is rich-feature terminal editor
-# remove username@machine in oh-my-zsh "agnoster" theme 
+# remove username@machine in oh-my-zsh "agnoster" theme
 DEFAULT_USER=$(whoami)
 ZSH_THEME="agnoster"
 

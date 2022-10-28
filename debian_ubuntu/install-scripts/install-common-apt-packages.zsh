@@ -24,6 +24,7 @@ PACKAGES=(
   valgrind
   xclip
   vim
+  zplug
 
   # required for some oh-my-zsh prompts
   fonts-powerline
@@ -36,13 +37,13 @@ PACKAGES=(
   pkg-config
   openssl
 
-  # Required to compile Linux (5.13 +)
+  # Additionally required packages to compile Linux (5.13 +)
   bison
   flex
   dwarves
   libncurses-dev
   libelf-dev
-  zstd 
+  zstd
 )
 
 

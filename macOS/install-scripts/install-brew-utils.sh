@@ -40,7 +40,8 @@ brew install \
     tmux \
     tree \
     webp \
-    wget
+    wget \
+    zplug
 
 # install java / jdk
 brew install \

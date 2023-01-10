@@ -1,5 +1,5 @@
 #!/bin/zsh
-# ^ this is mac os default/system shell; not the one from brew
+
 echo "### initializes the zsh installed by brew as default shell for the current user"
 set -e 
 set -x

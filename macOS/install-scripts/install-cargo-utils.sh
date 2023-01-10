@@ -1,27 +1,26 @@
 #!/bin/zsh
-# ^ this is mac os default/system shell; not the one from brew
 
 echo "Installs common cargo binaries"
 echo "make sure rustup/cargo is installed!"
 
 cargo install \
-    alacritty \
     ansi-escape-sequences-cli \
-    bat \
-    bottom \
+    `# bat` \
+    `# bottom` \
     cargo-expand \
     cargo-license \
     cargo-msrv \
     cargo-outdated \
     cargo-update \
     cargo-watch \
-    du-dust \
-    git-delta \
+    `# du-dust` \
+    `# exa` \
+    `# git-delta` \
     gitui \
-    exa \
     nflz \
-    nu \
+    `# nu` \
     paper-terminal \
+    paging-calculator \
     ttfb \ 
     tokei \
     wambo 

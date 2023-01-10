@@ -1,5 +1,4 @@
 #!/bin/zsh
-# ^ this is mac os default/system shell; not the one from brew
 
 echo "make sure brew/homebrew is installed!"
 
@@ -41,13 +40,12 @@ brew install \
     tree \
     webp \
     wget \
-    zplug
+    zplug \
+    zsh
 
 # install java / jdk
 brew install \
-    openjdk \
-    openjdk@8 \
-    openjdk@11
+    openjdk 
 
 # set up openjdk in a way that the Mac OS Java System Wrapper can find it
 # to find this command, exec: `$ brew info openjdk@11`

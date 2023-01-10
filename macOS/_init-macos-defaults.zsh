@@ -1,5 +1,5 @@
 #!/bin/zsh
-# ^ this is mac os default/system shell; not the one from brew
+
 echo "### initializes MacOS default settings via CLI"
 set -e 
 set -x
@@ -81,18 +81,6 @@ defaults write com.apple.dock mouse-over-hilite-stack -bool true
 # Set the icon size of Dock items to 36 pixels
 defaults write com.apple.dock tilesize -int 46
 
-
-###############################################################################
-# iTerm 2
-
-# Install the Solarized Dark theme for iTerm
-# it still needs to be configured manually
-open "./res/iterm2-colors-solarized-dark-custom.itermcolors"
-
-# Don’t display the annoying prompt when quitting iTerm
-defaults write com.googlecode.iterm2 PromptOnQuit -bool false
-
-###############################################################################
 # Photos
 
 # Prevent Photos from opening automatically when devices are plugged in

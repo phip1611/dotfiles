@@ -1,5 +1,4 @@
 #!/bin/zsh
-# ^ this is mac os default/system shell; not the one from brew
 
 echo "make sure brew/homebrew is installed!"
 echo "this script installs all my brew cask apps"
@@ -14,18 +13,23 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 brew update && brew upgrade
 
-brew install --cask \
+brew install \
     "adobe-acrobat-reader" \
+    "alacritty" \
+    "bat" \
+    "bottom" \
     "clion" \
     "discord" \
     "docker" \
+    "dust" \
+    "exa" \
     "firefox" \
     "gimp" \
+    "git-delta" \
     "google-chrome" \
-    "google-photos-backup-and-sync" \
+    "google-drive" \
     "intellij-idea" \
-    "istumbler" \
-    "iterm2" \
+    "nushell" \
     "pgadmin4" \
     "postman" \
     "signal" \
@@ -33,14 +37,13 @@ brew install --cask \
     "steam" \
     "teamviewer" \
 	"telegram-desktop" \
-    "tunnelblick" `#openvpn for tu dresden` \
     "visual-studio-code" \
     "wireshark" \
     "zotero"
 
 # virtual box is special because it may requires special consent 
 # by macs system security system
-brew install --cask "virtualbox" 
+brew install "virtualbox" 
 
 # remove old packages (also from cask)
 brew cleanup

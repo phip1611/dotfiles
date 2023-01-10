@@ -1,5 +1,4 @@
 #!/bin/zsh
-# ^ this is mac os default/system shell; not the one from brew
 
 echo "installs necessary tools for embedded development (openocd, arm eabi gcc)"
 echo "install homebrew first!"

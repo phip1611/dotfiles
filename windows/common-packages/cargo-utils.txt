@@ -17,6 +17,7 @@ cargo install ^
     gitui ^
     nflz ^
     nu ^
+    paging-calculator ^
     paper-terminal ^
     ttfb ^
     tokei ^

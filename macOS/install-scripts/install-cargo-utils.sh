@@ -23,9 +23,9 @@ cargo install \
     paging-calculator \
     ttfb \ 
     tokei \
-    wambo 
+    wambo
 
-set -e 
+set -e
 set -x
 
 

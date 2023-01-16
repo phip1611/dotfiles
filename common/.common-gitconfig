@@ -4,6 +4,8 @@
     name  = Philipp Schuster
     email = phip1611@gmail.com
 
+# Only aliases with names different to git sub commands.
+# For example, "fetch = fetch -all" doesn't work but "fetch2 = ..." does.
 [alias]
     # the hist command I always used
     hist  = log --graph --decorate --oneline

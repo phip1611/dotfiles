@@ -17,7 +17,8 @@ cargo install \
     exa \
     nflz \
     nu \
+    paging-calculator \
     paper-terminal \
     ttfb \
     tokei \
-    wambo 
+    wambo

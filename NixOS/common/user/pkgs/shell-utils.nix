@@ -3,7 +3,7 @@
 { pkgs, lib, config, options, ... }:
 
 let
-  cfg = config.phip1611.common.user.pkgs.shell;
+  cfg = config.phip1611.common.user.pkgs.shell-utils;
   username = config.phip1611.common.cfg.username;
 
   nixpkgsUnstableSrc = builtins.fetchTarball {
@@ -21,7 +21,7 @@ let
 in
 {
   options = {
-    phip1611.common.user.pkgs.shell.enable = lib.mkEnableOption "Enable my typical GUI apps and fonts";
+    phip1611.common.user.pkgs.shell-utils.enable = lib.mkEnableOption "Enable my typical GUI apps and fonts";
   };
 
   config = lib.mkIf cfg.enable {

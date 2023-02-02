@@ -12,6 +12,6 @@
     ./dev.nix
     ./gui.nix
     ./python3.nix
-    ./shell.nix
+    ./shell-utils.nix
   ];
 }

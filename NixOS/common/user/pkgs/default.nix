@@ -7,10 +7,6 @@
 
 { pkgs, lib, config, options, ... }:
 
-let
-  optionPropBase = "phip1611.user.pkgs";
-  cfg = config."${optionPropBase}";
-in
 {
   imports = [
     ./dev.nix

@@ -3,10 +3,14 @@
 { pkgs, lib, config, options, ... }:
 
 let
-  cfg = config.phip1611.user.pkgs.dev;
-  username = config.phip1611.cfg.username;
+  cfg = config.phip1611.common.user.pkgs.dev;
+  username = config.phip1611.common.cfg.username;
 in
 {
+  options = {
+    phip1611.common.user.pkgs.dev.enable = lib.mkEnableOption "Enable development-related pkgs (gcc, rustup, ...)";
+  };
+
   config = lib.mkIf cfg.enable {
     users.users."${username}".packages = with pkgs; [
       # +++ Cargo utils +++

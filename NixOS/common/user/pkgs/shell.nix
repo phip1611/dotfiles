@@ -3,8 +3,8 @@
 { pkgs, lib, config, options, ... }:
 
 let
-  cfg = config.phip1611.user.pkgs.shell;
-  username = config.phip1611.cfg.username;
+  cfg = config.phip1611.common.user.pkgs.shell;
+  username = config.phip1611.common.cfg.username;
 
   nixpkgsUnstableSrc = builtins.fetchTarball {
     url = "https://github.com/NixOS/nixpkgs/archive/148dae7b4c90fe0f1c286a43534e8de87b5f4eb9.tar.gz";
@@ -20,6 +20,10 @@ let
   ];
 in
 {
+  options = {
+    phip1611.common.user.pkgs.shell.enable = lib.mkEnableOption "Enable my typical GUI apps and fonts";
+  };
+
   config = lib.mkIf cfg.enable {
     users.users."${username}".packages = with pkgs; [
       # +++ CLI Tools +++

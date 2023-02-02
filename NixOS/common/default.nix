@@ -2,6 +2,9 @@
 
 { pkgs, lib, config, options, ... }:
 
+let
+  cfg = config.phip1611.common;
+in
 {
   imports = [
     ./system
@@ -9,6 +12,8 @@
   ];
 
   options.phip1611.common = {
+    enable = lib.mkEnableOption "Enable all common sub-modules at once";
+
     # cfg: Internal configurations used by the NixOS modules of this repo.
     cfg = {
       username = lib.mkOption {
@@ -19,6 +24,9 @@
     };
   };
 
-  config = { };
+  config = lib.mkIf cfg.enable {
+    phip1611.common.user.enable = true;
+    phip1611.common.system.enable = true;
+  };
 
 }

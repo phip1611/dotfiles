@@ -1,11 +1,11 @@
 { pkgs, lib, config, options, ... }:
 
 let
-  cfg = config.phip1611.common.system.nixos-cfg;
+  cfg = config.phip1611.common.system.nixos-auto-update;
 in
 {
   options = {
-    phip1611.common.system.nixos-cfg.enable = lib.mkEnableOption "Enable NixOS auto updates";
+    phip1611.common.system.nixos-auto-update.enable = lib.mkEnableOption "Enable NixOS auto updates";
   };
 
   config = lib.mkIf cfg.enable {

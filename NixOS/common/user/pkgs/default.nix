@@ -7,6 +7,9 @@
 
 { pkgs, lib, config, options, ... }:
 
+let
+  cfg = config.phip1611.common.user.pkgs;
+in
 {
   imports = [
     ./dev.nix
@@ -14,4 +17,15 @@
     ./python3.nix
     ./shell-utils.nix
   ];
+
+  options = {
+    phip1611.common.user.pkgs.enable = lib.mkEnableOption "Enable all pkgs sub-modules at once";
+  };
+
+  config = lib.mkIf cfg.enable {
+    phip1611.common.user.pkgs.dev.enable = true;
+    phip1611.common.user.pkgs.gui.enable = true;
+    phip1611.common.user.pkgs.python3.enable = true;
+    phip1611.common.user.pkgs.shell-utils.enable = true;
+  };
 }

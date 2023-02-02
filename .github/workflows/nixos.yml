@@ -20,6 +20,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: cachix/install-nix-action@v18
-        with:
-          nix_path: nixos-config=.github/res/configuration.nix:nixpkgs=channel:nixos-22.11
-      - run: nix-shell -p "nixos-rebuild" --run "nixos-rebuild dry-build"
+      - run: ./NixOS/_test/test-build.sh

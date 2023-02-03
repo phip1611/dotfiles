@@ -13,6 +13,7 @@ in
 
   config = lib.mkIf cfg.enable {
     users.users."${username}".packages = with pkgs; [
+      gnome.dconf-editor
       gnome.gnome-tweaks
       gnomeExtensions.clock-override
       # This is only a subset of extensions but dash-to-dock

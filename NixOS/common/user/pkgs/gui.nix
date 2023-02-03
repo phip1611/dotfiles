@@ -14,12 +14,10 @@ in
   config = lib.mkIf cfg.enable {
     users.users."${username}".packages = with pkgs; [
       alacritty
-      element-desktop
       jetbrains.clion
       gimp
       google-chrome
-      # Nextcloud sets up a background service automatically.
-      nextcloud-client
+      gparted
       signal-desktop
       spotify
       vscode

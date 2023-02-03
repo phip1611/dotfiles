@@ -40,6 +40,7 @@ in
       httpie
       killall
       micro
+      nixos-option
       nixpkgs-fmt
       ripgrep
       tcpdump

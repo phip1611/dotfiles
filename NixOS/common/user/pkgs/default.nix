@@ -12,12 +12,13 @@ let
 in
 {
   imports = [
+    ./custom
     ./dev.nix
     ./fonts.nix
     ./gnome-exts.nix
     ./gui.nix
     ./python3.nix
-    ./shell-utils.nix
+    ./cli.nix
   ];
 
   options = {
@@ -25,11 +26,12 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    phip1611.common.user.pkgs.custom.enable = true;
     phip1611.common.user.pkgs.dev.enable = true;
     phip1611.common.user.pkgs.fonts.enable = true;
     phip1611.common.user.pkgs.gnome-exts.enable = true;
     phip1611.common.user.pkgs.gui.enable = true;
     phip1611.common.user.pkgs.python3.enable = true;
-    phip1611.common.user.pkgs.shell-utils.enable = true;
+    phip1611.common.user.pkgs.cli.enable = true;
   };
 }

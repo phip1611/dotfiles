@@ -5,6 +5,8 @@ let
 in
 {
   imports = [
+    ./documentation.nix
+    ./firmware.nix
     ./global-editor.nix
     ./latest-linux.nix
     ./nix-cfg.nix
@@ -17,6 +19,8 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    phip1611.common.system.documentation.enable = true;
+    phip1611.common.system.firmware.enable = true;
     phip1611.common.system.global-editor.enable = true;
     phip1611.common.system.latest-linux.enable = true;
     phip1611.common.system.nix-cfg.enable = true;

@@ -3,7 +3,7 @@
 { pkgs, lib, config, options, ... }:
 
 let
-  cfg = config.phip1611.common.user.pkgs.shell-utils;
+  cfg = config.phip1611.common.user.pkgs.cli;
   username = config.phip1611.common.cfg.username;
 
   nixpkgsUnstableSrc = builtins.fetchTarball {
@@ -21,22 +21,25 @@ let
 in
 {
   options = {
-    phip1611.common.user.pkgs.shell-utils.enable = lib.mkEnableOption "Enable my typical GUI apps and fonts";
+    phip1611.common.user.pkgs.cli.enable = lib.mkEnableOption "Enable my typical CLIs";
   };
 
   config = lib.mkIf cfg.enable {
     users.users."${username}".packages = with pkgs; [
       # +++ CLI Tools +++
-      # ansi
+      ## ansi
       bat
       bottom
       # already there automatically; here only for completeness
       coreutils
       curl
+      dig # dig and nslookup
       du-dust
       exa
       file
       git
+      iperf3
+      htop
       httpie
       killall
       micro
@@ -46,10 +49,13 @@ in
       tcpdump
       tldr
       tmux
+      tokei
+      traceroute
       tree
-      # ttfb
+      ## ttfb
       util-linux # lsblk and more
       wget
+      whois
       vim
       xclip # for copy&paste in several tools, such as micro
       zsh

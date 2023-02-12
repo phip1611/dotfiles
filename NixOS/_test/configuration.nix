@@ -14,27 +14,27 @@ in
   # ---------------------------------------------------------------------------
   # Test the properties from my NixOS Module. Use the `$ list-nixos-options.sh`
   # to find all.
-  phip1611.common = {
-    cfg.username = testuser;
-    enable = true;
-    system.enable = true;
-    system.global-editor.enable = true;
-    system.latest-linux.enable = true;
-    system.nix-cfg.enable = true;
-    system.nixos-auto-update.enable = true;
-    system.sudo.enable = true;
-    user.enable = true;
-    user.pkgs.dev.enable = true;
-    user.pkgs.enable = true;
-    user.pkgs.fonts.enable = true;
-    user.pkgs.gnome-exts.enable = true;
-    user.pkgs.gui.enable = true;
-    user.pkgs.python3.additionalPython3Pkgs = [
-      pkgs.python3Packages.pwntools
-    ];
-    user.pkgs.python3.enable = true;
-    user.pkgs.shell-utils.enable = true;
-  };
+  phip1611.common.cfg.username = testuser;
+  phip1611.common.enable = false;
+  phip1611.common.system.documentation.enable = false;
+  phip1611.common.system.enable = false;
+  phip1611.common.system.firmware.enable = false;
+  phip1611.common.system.global-editor.enable = false;
+  phip1611.common.system.latest-linux.enable = false;
+  phip1611.common.system.nix-cfg.enable = false;
+  phip1611.common.system.nixos-auto-update.enable = false;
+  phip1611.common.system.sudo.enable = false;
+  phip1611.common.user.enable = false;
+  phip1611.common.user.pkgs.cli.enable = false;
+  phip1611.common.user.pkgs.custom.enable = false;
+  phip1611.common.user.pkgs.dev.enable = false;
+  phip1611.common.user.pkgs.enable = false;
+  phip1611.common.user.pkgs.fonts.enable = false;
+  phip1611.common.user.pkgs.gnome-exts.enable = false;
+  phip1611.common.user.pkgs.gui.enable = false;
+  phip1611.common.user.pkgs.python3.additionalPython3Pkgs = [ ];
+  phip1611.common.user.pkgs.python3.enable = false;
+
 
   # ---------------------------------------------------------------------------
 

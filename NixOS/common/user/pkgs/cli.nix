@@ -36,6 +36,7 @@ in
       dig # dig and nslookup
       du-dust
       exa
+      fd # better find
       file
       git
       iperf3

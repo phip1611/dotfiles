@@ -34,7 +34,7 @@ in
       # Rustup can't auto-update itself but installed Rust
       # toolchains.
       rustup
-      # Experience showed that this is not working in all cases as intended. Instead,
+      # Experience shows that this is not working in all cases as intended. Instead,
       # projects should open a nix-shell like this: `$ nix-shell -p openssl pkg-config`
       # pkg-config
       qemu

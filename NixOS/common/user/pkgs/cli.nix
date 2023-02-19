@@ -7,8 +7,8 @@ let
   username = config.phip1611.common.cfg.username;
 
   nixpkgsUnstableSrc = builtins.fetchTarball {
-    url = "https://github.com/NixOS/nixpkgs/archive/148dae7b4c90fe0f1c286a43534e8de87b5f4eb9.tar.gz";
-    sha256 = "sha256:1brhgqz61sqqhlcszs1kaa9nmfp1sym50y5pfffbjiriszwc7czc";
+    url = "https://github.com/NixOS/nixpkgs/archive/2fe7e66ca091f5d3e7cef55ac4d8354ac13c5062.tar.gz";
+    sha256 = "sha256:11nn5fps22v45piq10hq4hmwhg717c30p7cp7k6cqb1c0vks8f1l";
   };
 
   nixpkgsUnstable = import nixpkgsUnstableSrc { };
@@ -16,7 +16,10 @@ let
   # All packages that are not yet in nixpkgs stable that I need.
   pkgsUnstable = with nixpkgsUnstable; [
     ansi
+    nflz
+    paging-calculator
     ttfb
+    wambo
   ];
 in
 {
@@ -43,6 +46,7 @@ in
       htop
       httpie
       killall
+      less
       micro
       nixos-option
       nixpkgs-fmt
@@ -58,7 +62,7 @@ in
       wget
       whois
       vim
-      xclip # for copy&paste in several tools, such as micro
+      xclip # for copy & paste in several tools, such as micro
       zsh
       zx
     ] ++ pkgsUnstable;

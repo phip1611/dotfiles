@@ -6,7 +6,7 @@ let
 in
 {
   options = {
-    phip1611.common.system.nix-cfg.enable = lib.mkEnableOption "Enable basic sensible nix configurations defaults";
+    phip1611.common.system.nix-cfg.enable = lib.mkEnableOption "Enable Nix-related configurations";
   };
 
   config = lib.mkIf cfg.enable {
@@ -41,7 +41,5 @@ in
         automatic = true;
       };
     };
-
-
   };
 }

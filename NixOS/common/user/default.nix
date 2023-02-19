@@ -5,6 +5,7 @@ let
 in
 {
   imports = [
+    ./env
     ./pkgs
   ];
 
@@ -13,6 +14,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    phip1611.common.user.env.enable = true;
     phip1611.common.user.pkgs.enable = true;
   };
 }

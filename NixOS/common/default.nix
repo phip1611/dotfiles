@@ -12,7 +12,14 @@ in
   ];
 
   options.phip1611.common = {
-    enable = lib.mkEnableOption "Enable all common sub-modules at once";
+
+    # I use mkOption in favor of mkEnableOption as I want this attribute
+    # to be default-true.
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      description = "Enable all common sub-modules at once";
+      default = true;
+    };
 
     # cfg: Internal configurations used by the NixOS modules of this repo.
     cfg = {
@@ -20,6 +27,14 @@ in
         type = lib.types.str;
         description = "Username to apply configurations to";
         default = "phip1611";
+      };
+      # This is necessary as "config.system.stateVersion" isn't available for
+      # evaluation in NixOS. I do not know why. The state version is for example
+      # required for home-manager, so that some state matches the NixOS system.
+      stateVersion = lib.mkOption {
+        type = lib.types.str;
+        description = "State version of the host NixOS system.";
+        example = "22.11";
       };
     };
   };

@@ -12,6 +12,8 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    nixpkgs.config.allowUnfree = true;
+
     users.users."${username}".packages = with pkgs; [
       alacritty
       jetbrains.clion
@@ -20,6 +22,7 @@ in
       gparted
       signal-desktop
       spotify
+      tdesktop # telegram desktop
       vscode
     ];
   };

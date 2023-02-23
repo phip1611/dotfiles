@@ -18,6 +18,7 @@ in
   imports = [
     ./custom
     ./dev.nix
+    ./doc.nix
     ./fonts.nix
     ./gnome-exts.nix
     ./gui.nix
@@ -32,6 +33,7 @@ in
   config = lib.mkIf cfg.enable {
     phip1611.common.user.pkgs.custom.enable = true;
     phip1611.common.user.pkgs.dev.enable = true;
+    phip1611.common.user.pkgs.doc.enable = true;
     phip1611.common.user.pkgs.fonts.enable = true;
     phip1611.common.user.pkgs.gnome-exts.enable = true;
     phip1611.common.user.pkgs.gui.enable = true;

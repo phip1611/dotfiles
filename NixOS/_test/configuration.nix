@@ -32,6 +32,7 @@ in
   phip1611.common.user.pkgs.cli.enable = true;
   phip1611.common.user.pkgs.custom.enable = true;
   phip1611.common.user.pkgs.dev.enable = true;
+  phip1611.common.user.pkgs.doc.enable = true;
   phip1611.common.user.pkgs.enable = true;
   phip1611.common.user.pkgs.fonts.enable = true;
   phip1611.common.user.pkgs.gnome-exts.enable = true;

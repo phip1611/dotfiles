@@ -13,6 +13,9 @@ in
 
   config = lib.mkIf cfg.enable {
     users.users."${username}".packages = with pkgs; [
+      open-sans
+      roboto
+      roboto-mono
       source-code-pro
     ];
   };

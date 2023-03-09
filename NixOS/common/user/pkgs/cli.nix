@@ -43,6 +43,7 @@ in
       file
       git
       iperf3
+      jq # pretty-print JSON
       htop
       httpie
       killall

@@ -17,6 +17,7 @@ in
       cargo-expand
       cargo-license
       cargo-msrv
+      cargo-nextest
       cargo-outdated
       cargo-update
       cargo-watch

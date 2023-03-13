@@ -22,6 +22,7 @@ in
     ./fonts.nix
     ./gnome-exts.nix
     ./gui.nix
+    ./media.nix
     ./python3.nix
     ./cli.nix
   ];
@@ -37,6 +38,7 @@ in
     phip1611.common.user.pkgs.fonts.enable = true;
     phip1611.common.user.pkgs.gnome-exts.enable = true;
     phip1611.common.user.pkgs.gui.enable = true;
+    phip1611.common.user.pkgs.media.enable = true;
     phip1611.common.user.pkgs.python3.enable = true;
     phip1611.common.user.pkgs.cli.enable = true;
   };

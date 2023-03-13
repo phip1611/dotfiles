@@ -37,6 +37,7 @@ in
   phip1611.common.user.pkgs.fonts.enable = true;
   phip1611.common.user.pkgs.gnome-exts.enable = true;
   phip1611.common.user.pkgs.gui.enable = true;
+  phip1611.common.user.pkgs.media.enable = true;
   phip1611.common.user.pkgs.python3.additionalPython3Pkgs = [
     # some random package
     pkgs.python3Packages.pwntools

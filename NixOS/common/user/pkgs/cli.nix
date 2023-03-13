@@ -33,6 +33,8 @@ in
       ## ansi
       bat
       bottom
+      cmatrix
+      cowsay
       # already there automatically; here only for completeness
       coreutils
       curl
@@ -41,6 +43,7 @@ in
       exa
       fd # better find
       file
+      fortune
       git
       iperf3
       jq # pretty-print JSON
@@ -48,9 +51,11 @@ in
       httpie
       killall
       less
+      lolcat
       micro
       nixos-option
       nixpkgs-fmt
+      ouch # cool (de)compression tool
       ripgrep
       tcpdump
       tldr
@@ -59,6 +64,7 @@ in
       traceroute
       tree
       ## ttfb
+      typos
       util-linux # lsblk and more
       wget
       whois

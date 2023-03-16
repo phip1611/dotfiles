@@ -7,8 +7,10 @@ let
   username = config.phip1611.common.cfg.username;
 
   nixpkgsUnstableSrc = builtins.fetchTarball {
-    url = "https://github.com/NixOS/nixpkgs/archive/2fe7e66ca091f5d3e7cef55ac4d8354ac13c5062.tar.gz";
-    sha256 = "sha256:11nn5fps22v45piq10hq4hmwhg717c30p7cp7k6cqb1c0vks8f1l";
+    # Picked a recent commit from the "master" branch, i.e., Nix unstable:
+    # https://github.com/NixOS/nixpkgs/commits/master
+    url = "https://github.com/NixOS/nixpkgs/archive/5b7af1a4176cf0810069ac034a8f18ba685d1aa0.tar.gz";
+    sha256 = "sha256:0g8sz2hkx2csk5q3f73fzwdbqdjwwwy1ph6w0mvvadipi5i660kj";
   };
 
   nixpkgsUnstable = import nixpkgsUnstableSrc { };
@@ -33,6 +35,7 @@ in
       ## ansi
       bat
       bottom
+      calc
       cmatrix
       cowsay
       # already there automatically; here only for completeness
@@ -52,10 +55,11 @@ in
       killall
       less
       lolcat
+      magic-wormhole # e2e encrypted file transfer "wormhole"
       micro
       nixos-option
       nixpkgs-fmt
-      ouch # cool (de)compression tool
+      ouch # cool convenient (de)compression tool
       ripgrep
       tcpdump
       tldr

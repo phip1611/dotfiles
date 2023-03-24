@@ -8,6 +8,24 @@ possible independent of the underlying hardware and NixOS version. However, some
 assumptions are there, such as that a reasonable fresh version of Nixpkgs is
 required.
 
-All modules are as standalone as possible, and it is possible to only use non-GUI
-related configurations to keep the footprint on servers or otherwise limited
-environments small.
+All modules are as standalone as possible, and it is possible to only use
+non-GUI related configurations to keep the footprint on servers or otherwise
+limited environments small.
+
+## Prerequisites
+[Home manager](https://github.com/nix-community/home-manager) must be globally
+available for the `common.user.env` module. This module doesn't import
+home-manager itself as it may clash with users. Instead, the configurations
+provided by this module are just an extension.
+
+```nix
+let
+  homeManager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/refs/heads/release-22.11.tar.gz";
+in
+{
+  imports = [
+    # Enables the "home-manager" configuration property
+    (import "${homeManager}/nixos")
+  ];
+}
+```

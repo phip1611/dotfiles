@@ -1,6 +1,6 @@
-# This module enables typical environment settings (like default shell) and
-# home manager for the given user. This is a big "all-in-one" module with no
-# further sub-enable-options.
+# This module enables typical environment settings (like default shell, prompt)
+# and home manager for the given user. This is intented as a big "all-in-one"
+# module with no further sub-enable-options.
 
 { pkgs, lib, config, options, ... }:
 

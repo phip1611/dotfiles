@@ -4,10 +4,13 @@
 { config, pkgs, ... }:
 
 let
+  homeManager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/refs/heads/release-22.11.tar.gz";
   testuser = "foobar";
 in
 {
   imports = [
+    # Enables the "home-manager" configuration property
+    (import "${homeManager}/nixos")
     ../../NixOS
   ];
 

@@ -14,6 +14,9 @@ in
   config = lib.mkIf cfg.enable {
     nixpkgs.config.allowUnfree = true;
 
+    # Teamviewer GUI doesn't work without the daemon.
+    services.teamviewer.enable = true;
+
     users.users."${username}".packages = with pkgs; [
       alacritty
       jetbrains.clion
@@ -22,6 +25,7 @@ in
       gparted
       signal-desktop
       spotify
+      teamviewer
       tdesktop # telegram desktop
       vscode
     ];

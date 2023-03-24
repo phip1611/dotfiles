@@ -40,8 +40,7 @@ in
         ];
         extraConfig = {
           core = {
-            editor = "micro";
-            # Already managed by delta.enable = true: pager = "delta";
+            editor = "${pkgs.micro}/bin/micro";
           };
           pull = {
             rebase = true;

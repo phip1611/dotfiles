@@ -1,4 +1,4 @@
-# This module enables typical environment settings (liek default shell) and
+# This module enables typical environment settings (like default shell) and
 # home manager for the given user. This is a big "all-in-one" module with no
 # further sub-enable-options.
 
@@ -28,7 +28,8 @@ in
     };
   };
 
-  # Set zsh as default shell and
+  # Set zsh as default shell, set some aliases and environment variables, plus
+  # other misc stuff.
   config = lib.mkIf cfg.enable {
     home-manager.users."${username}" = { pkgs, config, ... }: {
       home.stateVersion = stateVersion;
@@ -48,7 +49,7 @@ in
       };
 
       # Link the location of the "cargo" proxy binary of rustup from nixpkgs
-      home.file.".cargo/bin".source = config.lib.file.mkOutOfStoreSymlink /etc/profiles/per-user/pschuster/bin;
+      home.file.".cargo/bin".source = config.lib.file.mkOutOfStoreSymlink "/etc/profiles/per-user/${username}/bin";
     };
 
     users.users."${username}" = {

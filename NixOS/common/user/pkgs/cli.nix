@@ -60,6 +60,7 @@ in
       nixos-option
       nixpkgs-fmt
       ouch # cool convenient (de)compression tool
+      pciutils # lspci
       ripgrep
       tcpdump
       tldr

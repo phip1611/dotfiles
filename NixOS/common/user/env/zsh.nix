@@ -9,6 +9,12 @@ in
   config = lib.mkIf cfg.enable {
     home-manager.users."${username}" = { pkgs, config, ... }: {
       home.packages = [ pkgs.oh-my-zsh ];
+
+      home.sessionVariables = {
+        # Hide "user@host" in ZSH's agnoster-theme => shorter prompt
+        DEFAULT_USER = username;
+      };
+
       programs.zsh = {
         enable = true;
 

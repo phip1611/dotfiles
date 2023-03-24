@@ -11,12 +11,12 @@ in
       email = lib.mkOption {
         type = lib.types.str;
         description = "Default user email for git commits";
-        default = "phip1611@gmail.com";
+        example = "phip1611@gmail.com";
       };
       username = lib.mkOption {
         type = lib.types.str;
         description = "Default user name for git";
-        default = "Philipp Schuster";
+        example = "Philipp Schuster";
       };
     };
   };

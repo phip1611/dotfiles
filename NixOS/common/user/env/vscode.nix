@@ -6,7 +6,7 @@ let
   cfg = config.phip1611.common.user.env;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && !cfg.excludeGui) {
     home-manager.users."${username}" = { pkgs, config, ... }: {
       programs.vscode = {
         enable = true;

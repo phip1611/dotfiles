@@ -25,6 +25,9 @@ in
   options = {
     phip1611.common.user.env = {
       enable = lib.mkEnableOption "Enable all user-environmental options (shell, homemanager, dotfiles, ...)";
+      # Useful as those options are not needed in CLI-only environments. Most/
+      # all of those settings will bring them into the path and occupy storage.
+      excludeGui = lib.mkEnableOption "Disable configurations for GUI-based utilities (alacritty, vs code, ...)";
     };
   };
 

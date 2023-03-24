@@ -20,7 +20,6 @@ in
   phip1611.common.system.documentation.enable = true;
   phip1611.common.system.enable = true;
   phip1611.common.system.firmware.enable = true;
-  phip1611.common.system.global-editor.enable = true;
   phip1611.common.system.latest-linux.enable = true;
   phip1611.common.system.nix-cfg.enable = true;
   phip1611.common.system.nixos-auto-update.enable = true;
@@ -29,6 +28,7 @@ in
   phip1611.common.user.env.enable = true;
   phip1611.common.user.env.git.email = "phip1611@gmail.com";
   phip1611.common.user.env.git.username = "Philipp Schuster";
+  phip1611.common.user.env.excludeGui = false;
   phip1611.common.user.pkgs.cli.enable = true;
   phip1611.common.user.pkgs.custom.enable = true;
   phip1611.common.user.pkgs.dev.enable = true;

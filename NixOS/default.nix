@@ -5,6 +5,7 @@
 {
   imports = [
     ./common
+    ./util-overlay
   ];
 
   options.phip1611 = {
@@ -22,5 +23,8 @@
       description = "State version of the host NixOS system.";
       example = "22.11";
     };
+  };
+
+  config = {
   };
 }

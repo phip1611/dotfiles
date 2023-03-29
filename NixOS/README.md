@@ -1,7 +1,11 @@
 # NixOS Configuration
 
-This directory contains my common NixOS configurations split into reusable NixOS
-modules. You can list all NixOS configurations of this module by typing
+This NixOS module bundles a bunch of submodules that I use for my machines.
+- [common](common/README.md): typical environment setup of a system and
+  user-specific things, such as the shell and CLI tools
+- [util](util/README.md): utility functions
+
+You can list all NixOS configurations of this module by typing
 `$ ./list-nixos-options.sh`. They are all prefixed with `phip1611`.
 Subdirectories have documentation either in a dedicated README or in the Nix
 files.
@@ -20,21 +24,25 @@ let
   phip1611Common = builtins.fetchGit https://github.com/phip1611/dotfiles.git;
 in
 {
-  imports =
-    [
-      # Enables the "phip1611" config property.
-      "${phip1611Common}/NixOS"
-    ];
+  imports = [
+    # Enables the "phip1611" config property.
+    "${phip1611Common}/NixOS"
+  ];
 
-  phip1611.common = {
-    # Enable all default options.
-    enable = true;
-    cfg.username = "user-name";
-    cfg.stateVersion = "22.11";
-    user.env.git.email = "foobar@bar.de";
-    user.pkgs.python3.additionalPython3Pkgs = [
-      pkgs.python3Packages.pwntools
-    ];
+  phip1611 = {
+    username = "user-name";
+    stateVersion = "22.11";
+    common = {
+      # Enable all default options.
+       enable = true;
+       cfg.username = "user-name";
+       cfg.stateVersion = "22.11";
+       user.env.git.email = "foobar@bar.de";
+       user.pkgs.python3.additionalPython3Pkgs = [
+         pkgs.python3Packages.pwntools
+       ];
+    };
+    util-overlay.enable = true;
   };
 }
 ```

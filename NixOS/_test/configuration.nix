@@ -12,6 +12,7 @@ in
     # Enables the "home-manager" configuration property
     (import "${homeManager}/nixos")
     ../../NixOS
+    (import ./util-overlay-test testuser)
   ];
 
   # ---------------------------------------------------------------------------

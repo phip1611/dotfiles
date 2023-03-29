@@ -16,6 +16,7 @@ in
     # for users of this module, i.e., on the very top level.
     (import "${homeManager}/nixos")
     (import ./alacritty.nix username)
+    (import ./cargo.nix username)
     (import ./git.nix username)
     (import ./tmux.nix username)
     (import ./vscode.nix username)
@@ -49,9 +50,6 @@ in
         EDITOR = "${pkgs.micro}/bin/micro";
         VISUAL = "${pkgs.micro}/bin/micro";
       };
-
-      # Link the location of the "cargo" proxy binary of rustup from nixpkgs
-      home.file.".cargo/bin".source = config.lib.file.mkOutOfStoreSymlink "/etc/profiles/per-user/${username}/bin";
     };
   };
 }

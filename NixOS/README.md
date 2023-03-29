@@ -17,12 +17,7 @@ To use this module, you can do:
 { config, pkgs, ... }:
 
 let
-  phip1611Common = builtins.fetchGit {
-    rev = "<pick a commit>";
-    url = "ssh://github.com/phip1611/dotfiles.git";
-    # Replace by actual hash.
-    sha256 = lib.fakeSha256;
-  };
+  phip1611Common = builtins.fetchGit https://github.com/phip1611/dotfiles.git;
 in
 {
   imports =

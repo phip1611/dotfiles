@@ -6,8 +6,8 @@
 
 let
   homeManager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/refs/heads/release-22.11.tar.gz";
-  username = config.phip1611.common.cfg.username;
-  stateVersion = config.phip1611.common.cfg.stateVersion;
+  username = config.phip1611.username;
+  stateVersion = config.phip1611.stateVersion;
   cfg = config.phip1611.common.user.env;
 in
 {
@@ -31,8 +31,7 @@ in
     };
   };
 
-  # Set zsh as default shell, set some aliases and environment variables, plus
-  # other misc stuff.
+  # Set some aliases and environment variables, plus other misc stuff.
   config = lib.mkIf cfg.enable {
     home-manager.users."${username}" = { pkgs, config, ... }: {
       home.stateVersion = stateVersion;
@@ -53,10 +52,6 @@ in
 
       # Link the location of the "cargo" proxy binary of rustup from nixpkgs
       home.file.".cargo/bin".source = config.lib.file.mkOutOfStoreSymlink "/etc/profiles/per-user/${username}/bin";
-    };
-
-    users.users."${username}" = {
-      shell = pkgs.zsh;
     };
   };
 }

@@ -7,9 +7,17 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    home-manager.users."${username}" = { pkgs, config, ... }: {
-      home.packages = [ pkgs.oh-my-zsh ];
 
+    # ZSH as default shell for my user.
+    users.users."${username}" = {
+      shell = pkgs.zsh;
+    };
+
+    # Add an entry to /etc/shells. I didn't encounter a situation yet where this
+    # was actually required, but it is recommended in the docs.
+    environment.shells = with pkgs; [ zsh ];
+
+    home-manager.users."${username}" = { pkgs, config, ... }: {
       home.sessionVariables = {
         # Hide "user@host" in ZSH's agnoster-theme => shorter prompt
         DEFAULT_USER = username;

@@ -17,8 +17,8 @@ in
   # ---------------------------------------------------------------------------
   # Test the properties from my NixOS Module. Use the `$ list-nixos-options.sh`
   # to find all.
-  phip1611.common.cfg.stateVersion = "22.11";
-  phip1611.common.cfg.username = testuser;
+  phip1611.stateVersion = "22.11";
+  phip1611.username = testuser;
   phip1611.common.enable = true;
   phip1611.common.system.documentation.enable = true;
   phip1611.common.system.enable = true;
@@ -46,7 +46,6 @@ in
     pkgs.python3Packages.pwntools
   ];
   phip1611.common.user.pkgs.python3.enable = true;
-
 
   # ---------------------------------------------------------------------------
 

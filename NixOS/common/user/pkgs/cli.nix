@@ -4,7 +4,7 @@
 
 let
   cfg = config.phip1611.common.user.pkgs.cli;
-  username = config.phip1611.common.cfg.username;
+  username = config.phip1611.username;
 
   nixpkgsUnstableSrc = builtins.fetchTarball {
     # Picked a recent commit from the "master" branch, i.e., Nix unstable:

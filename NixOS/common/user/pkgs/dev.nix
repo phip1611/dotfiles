@@ -4,7 +4,7 @@
 
 let
   cfg = config.phip1611.common.user.pkgs.dev;
-  username = config.phip1611.common.cfg.username;
+  username = config.phip1611.username;
 in
 {
   options = {
@@ -14,6 +14,7 @@ in
   config = lib.mkIf cfg.enable {
     users.users."${username}".packages = with pkgs; [
       # +++ Cargo utils +++
+      cargo-deny
       cargo-expand
       cargo-license
       cargo-msrv

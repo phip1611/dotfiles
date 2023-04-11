@@ -24,6 +24,7 @@ in
       cargo-watch
 
       # +++ dev tools+++
+      deadnix
       gcc
       # already there automatically; here only for completeness
       binutils
@@ -31,6 +32,8 @@ in
       cmake
       gdb
       gnumake
+      # for USB serial: "sudo minicom -D /dev/ttyUSB0"
+      minicom
       ninja
       nodejs
       # Rustup can't auto-update itself but installed Rust toolchains.

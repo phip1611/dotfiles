@@ -22,6 +22,7 @@ let
     paging-calculator
     ttfb
     wambo
+    yamlfmt
   ];
 in
 {
@@ -59,6 +60,7 @@ in
       micro
       nixos-option
       nixpkgs-fmt
+      ookla-speedtest # needs unfree nixpkgs
       ouch # cool convenient (de)compression tool
       pciutils # lspci
       ripgrep

@@ -5,6 +5,7 @@
 {
   imports = [
     ./common
+    ./network-boot
     ./util-overlay
   ];
 

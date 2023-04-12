@@ -19,6 +19,7 @@ in
 
     users.users."${username}".packages = with pkgs; [
       alacritty
+      firefox
       jetbrains.clion
       gimp
       google-chrome

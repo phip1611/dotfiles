@@ -1,11 +1,14 @@
-# This overlay adds additional utility functions to `pkgs`.
+# This overlay adds additional functionality to `pkgs`.
 
 self: super:
 
 let
   pkgs = super.pkgs;
-  writers = pkgs.callPackage ./writers {};
+  lib = super.lib;
+  utils = import ./utils { inherit lib; };
+  writers = import ./writers { inherit pkgs; };
 in
 {
-  writeZxScriptBin = writers.writeZxScriptBin;
+  phip1611-util = utils;
+  writers = { inherit (writers) writeZxScriptBin; };
 }

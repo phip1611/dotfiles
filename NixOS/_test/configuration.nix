@@ -11,8 +11,10 @@ in
   imports = [
     # Enables the "home-manager" configuration property
     (import "${homeManager}/nixos")
+    # Module to test.
     ../../NixOS
-    (import ./util-overlay-test testuser)
+    # Actual tests put into smaller sub-modules.
+    ./modules
   ];
 
   # ---------------------------------------------------------------------------

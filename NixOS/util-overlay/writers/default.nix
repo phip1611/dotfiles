@@ -1,7 +1,7 @@
 { pkgs, }:
 
 let
-  writeZxScriptBin = pkgs.callPackage ./write-zx-script-bin.nix { };
+  writeZxScriptBin = import ./write-zx-script-bin.nix { inherit pkgs; };
 in
 {
   inherit writeZxScriptBin;

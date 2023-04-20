@@ -4,7 +4,7 @@
 
 let
   cfg = config.phip1611.common.user.pkgs.cli;
-  username = config.phip1611.common.cfg.username;
+  username = config.phip1611.username;
 
   nixpkgsUnstableSrc = builtins.fetchTarball {
     # Picked a recent commit from the "master" branch, i.e., Nix unstable:
@@ -22,6 +22,7 @@ let
     paging-calculator
     ttfb
     wambo
+    yamlfmt
   ];
 in
 {
@@ -59,6 +60,7 @@ in
       micro
       nixos-option
       nixpkgs-fmt
+      ookla-speedtest # needs unfree nixpkgs
       ouch # cool convenient (de)compression tool
       pciutils # lspci
       ripgrep

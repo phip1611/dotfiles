@@ -4,7 +4,7 @@
 
 let
   cfg = config.phip1611.common.user.pkgs.gnome-exts;
-  username = config.phip1611.common.cfg.username;
+  username = config.phip1611.username;
 in
 {
   options = {

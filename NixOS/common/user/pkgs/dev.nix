@@ -4,7 +4,7 @@
 
 let
   cfg = config.phip1611.common.user.pkgs.dev;
-  username = config.phip1611.common.cfg.username;
+  username = config.phip1611.username;
 in
 {
   options = {
@@ -14,6 +14,7 @@ in
   config = lib.mkIf cfg.enable {
     users.users."${username}".packages = with pkgs; [
       # +++ Cargo utils +++
+      cargo-deny
       cargo-expand
       cargo-license
       cargo-msrv
@@ -23,6 +24,7 @@ in
       cargo-watch
 
       # +++ dev tools+++
+      deadnix
       gcc
       # already there automatically; here only for completeness
       binutils
@@ -30,6 +32,8 @@ in
       cmake
       gdb
       gnumake
+      # for USB serial: "sudo minicom -D /dev/ttyUSB0"
+      minicom
       ninja
       nodejs
       # Rustup can't auto-update itself but installed Rust toolchains.

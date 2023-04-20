@@ -2,7 +2,7 @@
 
 let
   cfg = config.phip1611.common.system.nix-cfg;
-  username = config.phip1611.common.cfg.username;
+  username = config.phip1611.username;
 in
 {
   options = {

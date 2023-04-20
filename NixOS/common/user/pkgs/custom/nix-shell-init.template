@@ -12,5 +12,5 @@ pkgs.mkShell rec {
   # ];
 
   # Enable to find shared objects, such as libX11.so.
-  # LD_LIBRARY_PATH = "$${pkgs.lib.makeLibraryPath buildInputs}";
+  # LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath buildInputs;
 }

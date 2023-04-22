@@ -29,6 +29,7 @@ in
       teamviewer
       tdesktop # telegram desktop
       vscode
+      xournalpp
     ];
   };
 }

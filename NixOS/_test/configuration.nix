@@ -50,6 +50,9 @@ in
   ];
   phip1611.common.user.pkgs.python3.enable = true;
 
+  phip1611.services.meshcommander.enable = true;
+  phip1611.services.meshcommander.port = 3000;
+
   # ---------------------------------------------------------------------------
 
   nixpkgs.config.allowUnfree = true;

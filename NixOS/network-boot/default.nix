@@ -146,7 +146,7 @@ in
     systemd.services.dnsmasq = {
       # Ensure that the directory is created, if it doesn't exist.
       # Only relevant when a new NixOS machine is initially set up.
-      preStart = pkgs.phip1611-util.tracePrettyVal ''
+      preStart = ''
         mkdir -m 0777 -p ${cfg.tftpRoot}
 
         function replace_if_not_exists() {

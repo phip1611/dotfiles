@@ -46,3 +46,7 @@ in
   };
 }
 ```
+
+# Additional Notes
+Some NixOS options require a restart of the system to have a fully applied NixOS
+config, such as adding systemd user services.

@@ -6,6 +6,7 @@
   imports = [
     ./common
     ./network-boot
+    ./services
     ./util-overlay
   ];
 

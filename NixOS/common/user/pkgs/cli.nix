@@ -72,6 +72,7 @@ in
       tree
       ## ttfb
       typos
+      usbutils # lsusb
       util-linux # lsblk and more
       wget
       whois

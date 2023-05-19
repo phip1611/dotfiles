@@ -13,6 +13,8 @@ in
     nix = {
       # Set the nix channel to the one that comes from my NixOS configurations's
       # flake. I still sometimes use Nix channels for quick prototyping.
+      #
+      # This is also relevant so that `$ nix-shell -p foo` works.
       nixPath = [
         "nixpkgs=${nixpkgs}"
       ];

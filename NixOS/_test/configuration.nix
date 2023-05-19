@@ -16,6 +16,7 @@
 
 let
   testuser = "foobar";
+  stateVersion = "22.11";
 in
 {
   imports = [
@@ -37,7 +38,7 @@ in
   # ---------------------------------------------------------------------------
   # Test the properties from my NixOS Module. Use the `$ list-nixos-options.sh`
   # to find all.
-  phip1611.stateVersion = "22.11";
+  phip1611.stateVersion = stateVersion;
   phip1611.username = testuser;
   phip1611.common.enable = true;
   phip1611.common.system.documentation.enable = true;
@@ -45,6 +46,7 @@ in
   phip1611.common.system.firmware.enable = true;
   phip1611.common.system.latest-linux.enable = true;
   phip1611.common.system.nix-cfg.enable = true;
+  phip1611.common.system.nix-path-from-flake.enable = true;
   phip1611.common.system.nixos-auto-update.enable = true;
   phip1611.common.system.sudo.enable = true;
   phip1611.common.user.enable = true;
@@ -72,15 +74,8 @@ in
 
   # ---------------------------------------------------------------------------
 
-  nix = {
-    nixPath = [
-      "nixpkgs=${nixpkgs}"
-    ];
-    registry.nixpkgs.flake = nixpkgs;
-  };
-
   nixpkgs.config.allowUnfree = true;
-  system.stateVersion = "22.11";
+  system.stateVersion = stateVersion;
 
   boot.loader.systemd-boot.enable = true;
 

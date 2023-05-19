@@ -1,4 +1,4 @@
-# util-overlay
+# NixOS: Util Overlay Module
 
 This optional module adds a few utils as overlay to `pkgs`, such as
 - `phip1611-util.tracePretty`

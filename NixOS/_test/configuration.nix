@@ -47,7 +47,6 @@ in
   phip1611.common.system.latest-linux.enable = true;
   phip1611.common.system.nix-cfg.enable = true;
   phip1611.common.system.nix-path-from-flake.enable = true;
-  phip1611.common.system.nixos-auto-update.enable = true;
   phip1611.common.system.sudo.enable = true;
   phip1611.common.user.enable = true;
   phip1611.common.user.env.enable = true;

@@ -10,7 +10,6 @@ in
     ./latest-linux.nix
     ./nix-cfg.nix
     ./nix-path-from-flake.nix
-    ./nixos-auto-update.nix
     ./sudo.nix
   ];
 
@@ -24,7 +23,6 @@ in
     phip1611.common.system.latest-linux.enable = true;
     phip1611.common.system.nix-cfg.enable = true;
     phip1611.common.system.nix-path-from-flake.enable = true;
-    phip1611.common.system.nixos-auto-update.enable = true;
     phip1611.common.system.sudo.enable = true;
   };
 }

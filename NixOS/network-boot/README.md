@@ -1,4 +1,4 @@
-# Network Boot NixOS Module
+# NixOS: Network Boot Module
 
 This module sets up a network boot setup on the provided network interfaces.
 Each interface will have an IP assigned. A

@@ -4,8 +4,6 @@ let
   username = config.phip1611.username;
 in
 {
-  # https://nixos.org/manual/nixos/stable/options.html#opt-users.extraUsers._name_.homeMode
-  # TODO check if I can use the  home folder now
   phip1611.network-boot.enable = true;
   phip1611.network-boot.tftpRoot = "/tftpboot";
   phip1611.network-boot.interfaces = [

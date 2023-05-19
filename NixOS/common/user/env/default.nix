@@ -5,16 +5,12 @@
 { pkgs, lib, config, options, ... }:
 
 let
-  homeManager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/refs/heads/release-22.11.tar.gz";
   username = config.phip1611.username;
   stateVersion = config.phip1611.stateVersion;
   cfg = config.phip1611.common.user.env;
 in
 {
   imports = [
-    # Enables the "home-manager" configuration property. This also works
-    # for users of this module, i.e., on the very top level.
-    (import "${homeManager}/nixos")
     (import ./alacritty.nix username)
     (import ./cargo.nix username)
     (import ./git.nix username)

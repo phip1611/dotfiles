@@ -1,26 +1,44 @@
 # Minimal configuration that is accepted by "nixos-rebuild" + import of
 # modules to test.
 
-{ config, pkgs, ... }:
+# The inputs are by the inputs of the Nix flake, such as "nixpkgs-unstable".
+{ config
+, pkgs
+, system
+
+  # Flake inputs
+, nixpkgs
+, nixpkgs-unstable
+, home-manager
+  #, phip1611-common
+, ...
+}:
 
 let
-  homeManager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/refs/heads/release-22.11.tar.gz";
   testuser = "foobar";
+  stateVersion = "22.11";
 in
 {
   imports = [
-    # Enables the "home-manager" configuration property
-    (import "${homeManager}/nixos")
-    # Module to test.
+    # My common module that I want to test.
+    # Nix flake inputs currently do not support relative paths. Hence, I import
+    # this module the legacy way.. as a consequence, I do not really test if the
+    # flake definition is fine. However, this should be fine for now.
+    # phip1611-common.nixosModules.phip1611-common
     ../../NixOS
-    # Actual tests put into smaller sub-modules.
+
+    # Enables the "home-manager" configuration property.
+    home-manager.nixosModules.home-manager
+
+    # Actual tests that test the configuration properties from my module put
+    # into smaller sub-modules.
     ./modules
   ];
 
   # ---------------------------------------------------------------------------
   # Test the properties from my NixOS Module. Use the `$ list-nixos-options.sh`
   # to find all.
-  phip1611.stateVersion = "22.11";
+  phip1611.stateVersion = stateVersion;
   phip1611.username = testuser;
   phip1611.common.enable = true;
   phip1611.common.system.documentation.enable = true;
@@ -28,6 +46,7 @@ in
   phip1611.common.system.firmware.enable = true;
   phip1611.common.system.latest-linux.enable = true;
   phip1611.common.system.nix-cfg.enable = true;
+  phip1611.common.system.nix-path-from-flake.enable = true;
   phip1611.common.system.nixos-auto-update.enable = true;
   phip1611.common.system.sudo.enable = true;
   phip1611.common.user.enable = true;
@@ -56,7 +75,7 @@ in
   # ---------------------------------------------------------------------------
 
   nixpkgs.config.allowUnfree = true;
-  system.stateVersion = "22.11";
+  system.stateVersion = stateVersion;
 
   boot.loader.systemd-boot.enable = true;
 

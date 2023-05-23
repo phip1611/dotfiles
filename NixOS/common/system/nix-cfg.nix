@@ -12,7 +12,8 @@ in
   config = lib.mkIf cfg.enable {
     nix = {
       settings = {
-        # tips from: https://jackson.dev/post/nix-reasonable-defaults/
+        # Some configs are taken from:
+        # https://jackson.dev/post/nix-reasonable-defaults/
         connect-timeout = 5;
         log-lines = 25;
         min-free = 128000000;
@@ -23,7 +24,12 @@ in
         # nix optimise the store after each and every build (for the built path)
         # by replacing identical files in the store by hard links.
         auto-optimise-store = true;
+
+        # These both options are activated for multiple reasons
+        # 1) useful for developers
+        # 2) recommended in https://github.com/nix-community/nix-direnv
         keep-outputs = true;
+        keep-derivations = true;
 
         trusted-users = [ username ];
       };

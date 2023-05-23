@@ -13,6 +13,7 @@ in
   imports = [
     (import ./alacritty.nix username)
     (import ./cargo.nix username)
+    (import ./direnv.nix username)
     (import ./git.nix username)
     (import ./tmux.nix username)
     (import ./vscode.nix username)

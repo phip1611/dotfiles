@@ -35,6 +35,7 @@ in
       # for USB serial: "sudo minicom -D /dev/ttyUSB0"
       minicom
       ninja
+      niv
       nodejs
       # Rustup can't auto-update itself but installed Rust toolchains.
       rustup

@@ -33,10 +33,11 @@ in
           hist2all = "hist2 --all";
         };
         ignores = [
+          ".direnv/"
           ".idea/"
-          "cmake-build-*/"
           "*.iml"
           ".vscode/"
+          "cmake-build-*/"
         ];
         extraConfig = {
           core = {

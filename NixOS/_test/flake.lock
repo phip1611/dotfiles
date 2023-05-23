@@ -54,11 +54,24 @@
         "type": "github"
       }
     },
+    "phip1611-common": {
+      "locked": {
+        "lastModified": 1,
+        "narHash": "sha256-CEt7sn86x3N+hf3NlvyMgbO1HRLSibz+jic7Vm0GH+4=",
+        "path": "../../NixOS",
+        "type": "path"
+      },
+      "original": {
+        "path": "../../NixOS",
+        "type": "path"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-unstable": "nixpkgs-unstable"
+        "nixpkgs-unstable": "nixpkgs-unstable",
+        "phip1611-common": "phip1611-common"
       }
     },
     "utils": {

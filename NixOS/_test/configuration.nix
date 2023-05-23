@@ -10,7 +10,7 @@
 , nixpkgs
 , nixpkgs-unstable
 , home-manager
-  #, phip1611-common
+, phip1611-common
 , ...
 }:
 
@@ -21,11 +21,7 @@ in
 {
   imports = [
     # My common module that I want to test.
-    # Nix flake inputs currently do not support relative paths. Hence, I import
-    # this module the legacy way.. as a consequence, I do not really test if the
-    # flake definition is fine. However, this should be fine for now.
-    # phip1611-common.nixosModules.phip1611-common
-    ../../NixOS
+    phip1611-common.nixosModules.phip1611-common
 
     # Enables the "home-manager" configuration property.
     home-manager.nixosModules.home-manager

@@ -3,7 +3,7 @@
 let
   username = config.phip1611.username;
 in
-{
+builtins.trace "test module: network-boot-test" {
   phip1611.network-boot.enable = true;
   phip1611.network-boot.tftpRoot = "/tftpboot";
   phip1611.network-boot.interfaces = [

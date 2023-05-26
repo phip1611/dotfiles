@@ -6,7 +6,7 @@ let
   # From overlay. Make sure that is used at least once.
   trace = pkgs.phip1611-util;
 in
-{
+builtins.trace "test module: util-overlay" {
   phip1611.util-overlay.enable = true;
 
   # Combo test: "tracePrettyVal" + writeZxScriptBin

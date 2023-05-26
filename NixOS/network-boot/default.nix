@@ -174,68 +174,64 @@ in
     # in a DHCP/BOOTP request. dnsmasq will answer their replies.
     services.dnsmasq =
       let
-        # Create entries in the style of /etc/hosts
-        interfaceLines = map (interfaceName: "interface=${interfaceName}") interfaceNames;
-        interfaceLinesStr = builtins.concatStringsSep "\n" interfaceLines;
 
         # Tells the network-boot client: load "ipxe.efi" via TFTP from the
         # TFTP server behind the specified IP.
         dhcpBootLines =
           map
-            (hostIp: "dhcp-boot=tag:efi-x86_64,${ipxeEfi},${hostIp}")
+            (hostIp: "tag:efi-x86_64,${ipxeEfi},${hostIp}")
             hostIPs
           ++
           map
-            (hostIp: "dhcp-boot=tag:legacy-x86,${ipxeBios},${hostIp}")
+            (hostIp: "tag:legacy-x86,${ipxeBios},${hostIp}")
             hostIPs;
-        dhcpBootLinesStr = builtins.concatStringsSep "\n" dhcpBootLines;
 
-        dhcpRangeLines = map (interface: "dhcp-range=${interface.interface},${interface.testboxIp},${interface.testboxIp},infinite") cfg.interfaces;
-        dhcpRangeLinesStr = builtins.concatStringsSep "\n" dhcpRangeLines;
+        dhcpRangeLines = map (interface: "${interface.interface},${interface.testboxIp},${interface.testboxIp},infinite") cfg.interfaces;
 
-        tftpRootLines = map (interfaceName: "tftp-root=${cfg.tftpRoot},${interfaceName}") interfaceNames;
-        tftpRootLinesStr = builtins.concatStringsSep "\n" tftpRootLines;
+        tftpRootLines = map (interfaceName: "${cfg.tftpRoot},${interfaceName}") interfaceNames;
       in
       {
         enable = true;
         # Only operate on specified interfaces.
         # Setting this to true makes "ping google.de" etc. impossible.
         resolveLocalQueries = false;
-        extraConfig = ''
-          # dnsmasq config: see https://github.com/imp/dnsmasq/blob/master/dnsmasq.conf.example
-
+        # Configuration reference:
+        # https://github.com/imp/dnsmasq/blob/master/dnsmasq.conf.example
+        #
+        # Nix derivation automatically creates multiple lines from an array, as
+        # expected by dnsmasq.
+        settings = {
           # 0 => disable DNS; we only need DHCP and TFTP
-          port=0
-          domain-needed
-          bogus-priv
-
+          port = 0;
+          domain-needed = true;
+          bogus-priv = true;
           # prevent reading dnsmasq /etc/resolv.conf
           # (because we do not use the DNS functionality at all)
-          no-resolv
+          no-resolv = true;
 
           # Listen for DHCP/BOOTP requests on these interfaces.
-          ${interfaceLinesStr}
+          interface = interfaceNames;
 
           # With "bind-interfaces" I always encountered the problem that
           # the required interface is not up yet when dnsmasq starts,
           # even tho I tried to fiddle with delay in the service
           # (to wait until network is online). However, this way it works.
-          bind-dynamic
+          bind-dynamic = true;
 
           # don't cache nothing
-          cache-size=0
+          cache-size = 0;
 
-          dhcp-match=set:efi-x86_64,option:client-arch,7
-          ${dhcpBootLinesStr}
+          dhcp-match = "set:efi-x86_64,option:client-arch,7";
+          dhcp-boot = dhcpBootLines;
 
           # Answer DHCP requests/assign IPv4 address:
           # Enables SSH and other things on the connected test box.
-          ${dhcpRangeLinesStr}
+          dhcp-range = dhcpRangeLines;
 
           # Serve network boot files.
-          enable-tftp
-          ${tftpRootLinesStr}
-        '';
+          enable-tftp = true;
+          tftp-root = tftpRootLines;
+        };
       };
   };
 }

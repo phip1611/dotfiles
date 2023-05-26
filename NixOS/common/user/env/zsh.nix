@@ -13,9 +13,8 @@ in
       shell = pkgs.zsh;
     };
 
-    # Add an entry to /etc/shells. I didn't encounter a situation yet where this
-    # was actually required, but it is recommended in the docs.
-    environment.shells = with pkgs; [ zsh ];
+    # Adds zsh to /etc/shells
+    programs.zsh.enable = true;
 
     home-manager.users."${username}" = { pkgs, config, ... }: {
       home.sessionVariables = {

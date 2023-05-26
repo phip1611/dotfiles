@@ -1,4 +1,4 @@
-{ pkgs, lib, config, options, nixpkgs, ... }:
+{ pkgs, lib, config, options, nixpkgs, nixpkgs-unstable, ... }:
 
 let
   cfg = config.phip1611.common.system.nix-path-from-flake;
@@ -17,6 +17,7 @@ in
       # This is also relevant so that `$ nix-shell -p foo` works.
       nixPath = [
         "nixpkgs=${nixpkgs}"
+        "nixpkgs-unstable=${nixpkgs-unstable}"
       ];
       registry.nixpkgs.flake = nixpkgs;
     };

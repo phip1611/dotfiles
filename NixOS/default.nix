@@ -23,7 +23,7 @@
     stateVersion = lib.mkOption {
       type = lib.types.str;
       description = "State version of the host NixOS system.";
-      example = "22.11";
+      example = "23.05";
     };
   };
 }

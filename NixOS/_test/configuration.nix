@@ -16,7 +16,7 @@
 
 let
   testuser = "foobar";
-  stateVersion = "22.11";
+  stateVersion = "23.05";
 in
 {
   imports = [

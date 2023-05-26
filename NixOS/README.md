@@ -16,7 +16,7 @@ Subdirectories have documentation either in a dedicated README or in the Nix
 files.
 
 ## Compatibility and Usage
-I use and tested this on a NixOS 22.11 system. The module is supposed to be used
+I use and tested this on a NixOS 23.05 system. The module is supposed to be used
 via Nix flakes. An example `flake.nix` that describes a full and valid NixOS
 configuration may look like this:
 
@@ -24,13 +24,13 @@ configuration may look like this:
 {
   inputs = {
     nixpkgs = {
-      url = github:NixOS/nixpkgs/nixos-22.11;
+      url = github:NixOS/nixpkgs/nixos-23.05;
     };
     nixpkgs-unstable = {
       url = github:NixOS/nixpkgs/nixos-unstable;
     };
     home-manager = {
-      url = github:nix-community/home-manager/release-22.11;
+      url = github:nix-community/home-manager/release-23.05;
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Needs flake inputs "nixpkgs" and "nixpkgs-unstable".
@@ -72,7 +72,7 @@ and the corresponding `configuration.nix` may look like this:
 }:
 
 let
-  stateVersion = "22.11";
+  stateVersion = "hannel:nixos-23.05";
 in
 {
   imports = [
@@ -89,7 +89,7 @@ in
     common = {
       enable = true;
       cfg.username = "user-name";
-      cfg.stateVersion = "22.11";
+      cfg.stateVersion = "23.05";
       user.env.git.email = "foobar@bar.de";
       user.pkgs.python3.additionalPython3Pkgs = [
         pkgs.python3Packages.pwntools

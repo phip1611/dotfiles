@@ -2,7 +2,8 @@
 { config, pkgs, ... }:
 
 let
-  homeManager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/refs/heads/release-22.11.tar.gz";
+  homeManagerVersion = "23.05";
+  homeManager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/refs/heads/release-${homeManagerVersion}.tar.gz";
 in
 {
   imports = [

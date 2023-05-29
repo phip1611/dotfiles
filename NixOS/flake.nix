@@ -9,7 +9,7 @@
   # Hence, a top-level flake describing a full NixOS system passes these
   # parameters to the configuration's entry point.
 
-  outputs = { self }: {
+  outputs = { ... }: {
     nixosModules = rec {
       phip1611-common = import ./default.nix;
       default = phip1611-common;

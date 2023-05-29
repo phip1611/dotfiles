@@ -1,5 +1,5 @@
 # Entry point for the `list-nixos-options.sh` script.
-{ config, pkgs, ... }:
+{ ... }:
 
 let
   homeManagerVersion = "23.05";

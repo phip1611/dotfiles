@@ -20,7 +20,7 @@
     };*/
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, ... }@attrs:
+  outputs = { nixpkgs, ... }@attrs:
     {
       nixosConfigurations.ci = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";

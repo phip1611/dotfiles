@@ -1,6 +1,6 @@
 # This overlay adds additional functionality to `pkgs`.
 
-self: super:
+_self: super:
 
 let
   pkgs = super.pkgs;

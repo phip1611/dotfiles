@@ -8,7 +8,7 @@
 
   # Flake inputs
 , nixpkgs
-, nixpkgs-unstable
+  # , nixpkgs-unstable
 , home-manager
   #, phip1611-common
 , ...

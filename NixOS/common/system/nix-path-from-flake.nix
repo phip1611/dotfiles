@@ -1,8 +1,7 @@
-{ pkgs, lib, config, options, nixpkgs, nixpkgs-unstable, ... }:
+{ lib, config, options, nixpkgs, nixpkgs-unstable, ... }:
 
 let
   cfg = config.phip1611.common.system.nix-path-from-flake;
-  username = config.phip1611.username;
 in
 {
   options = {

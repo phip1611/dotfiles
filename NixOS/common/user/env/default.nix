@@ -2,7 +2,7 @@
 # and home manager for the given user. This is intented as a big "all-in-one"
 # module with no further sub-enable-options.
 
-{ pkgs, lib, config, options, ... }:
+{ lib, config, options, ... }:
 
 let
   username = config.phip1611.username;

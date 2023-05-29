@@ -1,6 +1,6 @@
 username:
 
-{ pkgs, lib, config, options, ... }:
+{ pkgs, lib, config, ... }:
 
 let
   cfg = config.phip1611.common.user.env;
@@ -16,7 +16,7 @@ in
     # Adds zsh to /etc/shells
     programs.zsh.enable = true;
 
-    home-manager.users."${username}" = { pkgs, config, ... }: {
+    home-manager.users."${username}" = { ... }: {
       home.sessionVariables = {
         # Hide "user@host" in ZSH's agnoster-theme => shorter prompt
         DEFAULT_USER = username;

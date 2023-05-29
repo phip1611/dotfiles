@@ -14,7 +14,7 @@ in
 
   config = lib.mkIf cfg.enable {
     users.users."${username}".packages = with pkgs; [
-      ## ansi
+      ansi
       bat
       bottom
       calc
@@ -40,10 +40,12 @@ in
       lolcat
       magic-wormhole # e2e encrypted file transfer "wormhole"
       micro
+      nflz
       nixos-option
       nixpkgs-fmt
       ookla-speedtest # needs unfree nixpkgs
       ouch # cool convenient (de)compression tool
+      paging-calculator
       pciutils # lspci
       ripgrep
       tcpdump
@@ -52,10 +54,11 @@ in
       tokei
       traceroute
       tree
-      ## ttfb
+      ttfb
       typos
       usbutils # lsusb
       util-linux # lsblk and more
+      wambo
       wget
       whois
       vim
@@ -66,12 +69,6 @@ in
     ++
     # All packages that are not yet in nixpkgs stable that I need.
     (with pkgs-unstable; [
-      ansi
-      nflz
-      paging-calculator
-      ttfb
-      wambo
-      yamlfmt
     ]);
   };
 }

@@ -41,6 +41,7 @@ in
       rustup
       valgrind
       yarn
+      yamlfmt
       # Experience shows that this is not working in all cases as intended.
       # Instead, projects should open a nix-shell like this:
       # `$ nix-shell -p openssl pkg-config`

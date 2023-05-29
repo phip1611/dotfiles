@@ -2,7 +2,7 @@
 
 username:
 
-{ pkgs, lib, config, options, ... }:
+{ pkgs, lib, config, ... }:
 
 let
   cfg = config.phip1611.common.user.env;
@@ -14,7 +14,7 @@ in
       source-code-pro
     ];
 
-    home-manager.users."${username}" = { pkgs, config, ... }: {
+    home-manager.users."${username}" = { ... }: {
       programs.alacritty = {
         enable = true;
         settings = builtins.fromJSON (builtins.readFile ./alacritty.json);

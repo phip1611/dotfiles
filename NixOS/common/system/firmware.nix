@@ -1,4 +1,4 @@
-{ pkgs, lib, config, options, ... }:
+{ lib, config, options, ... }:
 
 let
   cfg = config.phip1611.common.system.firmware;

@@ -1,6 +1,6 @@
 # Common Configurations for my NixOS systems.
 
-{ pkgs, lib, config, options, ... }:
+{ lib, config, options, ... }:
 
 let
   cfg = config.phip1611.common;

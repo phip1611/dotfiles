@@ -2,7 +2,7 @@
 # learning effect. They are added to nixpkgs per overlay. Some are added to
 # pkgs.lib while some are added to pkgs directly.
 
-{ pkgs, lib, config, options, ... }:
+{ lib, config, options, ... }:
 
 let
   cfg = config.phip1611.util-overlay;

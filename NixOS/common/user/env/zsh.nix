@@ -1,6 +1,6 @@
 username:
 
-{ pkgs, lib, config, options, ... }:
+{ pkgs, lib, config, ... }:
 
 let
   cfg = config.phip1611.common.user.env;
@@ -13,11 +13,10 @@ in
       shell = pkgs.zsh;
     };
 
-    # Add an entry to /etc/shells. I didn't encounter a situation yet where this
-    # was actually required, but it is recommended in the docs.
-    environment.shells = with pkgs; [ zsh ];
+    # Adds zsh to /etc/shells
+    programs.zsh.enable = true;
 
-    home-manager.users."${username}" = { pkgs, config, ... }: {
+    home-manager.users."${username}" = { ... }: {
       home.sessionVariables = {
         # Hide "user@host" in ZSH's agnoster-theme => shorter prompt
         DEFAULT_USER = username;

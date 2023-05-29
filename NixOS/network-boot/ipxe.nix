@@ -8,8 +8,6 @@
 
 { callPackage
 , ipxe
-, lib
-, stdenv
 , runCommand
 , writeScript
 }:
@@ -20,7 +18,7 @@ let
     dhcp
     chain tftp://''${next-server}/ipxe-default.cfg || shell
   '';
-  customIpxeBuilder = { stdenv, lib }:
+  customIpxeBuilder = { ... }:
     (ipxe.override {
       inherit embedScript;
     });

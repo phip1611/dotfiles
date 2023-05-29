@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 builtins.trace "Executing all test modules" {
   imports = [

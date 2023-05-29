@@ -8,7 +8,7 @@
 
   # Flake inputs
 , nixpkgs
-, nixpkgs-unstable
+  # , nixpkgs-unstable
 , home-manager
   #, phip1611-common
 , ...
@@ -16,7 +16,7 @@
 
 let
   testuser = "foobar";
-  stateVersion = "22.11";
+  stateVersion = "23.05";
 in
 {
   imports = [

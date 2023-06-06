@@ -46,6 +46,7 @@ in
   phip1611.common.system.firmware.enable = true;
   phip1611.common.system.latest-linux.enable = true;
   phip1611.common.system.nix-cfg.enable = true;
+  phip1611.common.system.nix-ld.enable = true;
   phip1611.common.system.nix-path-from-flake.enable = true;
   phip1611.common.system.sudo.enable = true;
   phip1611.common.user.enable = true;

@@ -1,7 +1,13 @@
-# NixOS Configuration
+# Common NixOS Module
 
-This directory exports a NixOS module made of a bunch of submodules that I
-regularly use on (almost all) my machines.
+This directory exports a Nix flake containing my common NixOS module. It
+consists of further submodules that provide various configuration options that
+can be activated or deactivated on a fine-grained level.
+
+**⚠️ This is not a full NixOS configuration but just a collection of personal
+helpful NixOS modules.** Examples for a full NixOS configuration using this
+common module can be found [here](_test/flake.nix) and
+[here](https://github.com/phip1611/nixos-configs/blob/main/flake.nix).
 
 There are the following major submodules available:
 - [common](common/README.md): typical environment setup of a system and

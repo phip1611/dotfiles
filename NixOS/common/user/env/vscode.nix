@@ -12,8 +12,8 @@ in
         enable = true;
         extensions = with pkgs.vscode-extensions; [
           bbenoist.nix
-          rust-lang.rust-analyzer
           editorconfig.editorconfig
+          rust-lang.rust-analyzer
         ];
       };
     };

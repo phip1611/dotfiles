@@ -70,5 +70,8 @@ in
     # All packages that are not yet in nixpkgs stable that I need.
     (with pkgs-unstable; [
     ]);
+
+    # Enables a few cases where route priviledges are requrired.
+    programs.traceroute.enable = true;
   };
 }

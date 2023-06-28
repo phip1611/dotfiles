@@ -9,9 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: cachix/install-nix-action@v19
+      - uses: cachix/install-nix-action@v20
         with:
           nix_path: nixpkgs=channel:nixos-23.05
+      - uses: DeterminateSystems/magic-nix-cache-action@main
       - run: ./NixOS/list-nixos-options.sh
 
   # Tests that a configuration.nix can include common NixOS modules.
@@ -19,9 +20,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: cachix/install-nix-action@v19
+      - uses: cachix/install-nix-action@v20
         with:
           nix_path: nixpkgs=channel:nixos-23.05
+      - uses: DeterminateSystems/magic-nix-cache-action@main
       - run: ./NixOS/_test/test-build.sh
 
   # Tests that a configuration.nix can include common NixOS modules.
@@ -29,7 +31,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: cachix/install-nix-action@v19
+      - uses: cachix/install-nix-action@v20
         with:
           nix_path: nixpkgs=channel:nixos-23.05
+      - uses: DeterminateSystems/magic-nix-cache-action@main
       - run: nix-shell -p nixpkgs-fmt --run "nixpkgs-fmt NixOS --check"

@@ -12,6 +12,7 @@ in
         enable = true;
         extensions = with pkgs.vscode-extensions; [
           bbenoist.nix
+          bungcip.better-toml
           editorconfig.editorconfig
           rust-lang.rust-analyzer
         ];

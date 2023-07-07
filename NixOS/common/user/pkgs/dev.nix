@@ -32,6 +32,7 @@ in
       cmake
       gdb
       gnumake
+      grub2 # for grub-file etc.
       # for USB serial: "sudo minicom -D /dev/ttyUSB0"
       minicom
       ninja
@@ -47,6 +48,9 @@ in
       # `$ nix-shell -p openssl pkg-config`
       # pkg-config
       qemu
+
+      # Always use the matching perf for the current selected kernel.
+      config.boot.kernelPackages.perf
     ];
   };
 }

@@ -30,6 +30,7 @@ in
       file
       fortune
       git
+      hexyl # hex viewer
       iftop # network usage per interface
       iperf3
       jq # pretty-print JSON

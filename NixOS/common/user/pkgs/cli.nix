@@ -1,11 +1,10 @@
 # Shell-related utilities.
 
-{ pkgs, lib, config, options, nixpkgs-unstable, ... }:
+{ pkgs, pkgsUnstable, lib, config, options, ... }:
 
 let
   cfg = config.phip1611.common.user.pkgs.cli;
   username = config.phip1611.username;
-  pkgs-unstable = nixpkgs-unstable.legacyPackages."x86_64-linux";
 in
 {
   options = {
@@ -69,7 +68,7 @@ in
     ]
     ++
     # All packages that are not yet in nixpkgs stable that I need.
-    (with pkgs-unstable; [
+    (with pkgsUnstable; [
     ]);
 
     # Enables a few cases where route priviledges are requrired.

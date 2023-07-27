@@ -1,11 +1,10 @@
 # GUI/Desktop Apps
 
-{ pkgs, lib, config, options, nixpkgs-unstable, ... }:
+{ pkgs, pkgsUnstable, lib, config, options, ... }:
 
 let
   cfg = config.phip1611.common.user.pkgs.gui;
   username = config.phip1611.username;
-  pkgs-unstable = nixpkgs-unstable.legacyPackages."x86_64-linux";
 in
 {
   options = {
@@ -33,7 +32,7 @@ in
       xournalpp
     ]) ++
     # pkgs whose updates to not immediatelly land in stable.
-    (with pkgs-unstable; [
+    (with pkgsUnstable; [
       alacritty
       jetbrains.clion
       vscode

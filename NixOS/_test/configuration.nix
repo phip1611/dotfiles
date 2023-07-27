@@ -1,18 +1,7 @@
-# Minimal configuration that is accepted by "nixos-rebuild" + import of
-# modules to test.
+# Minimal configuration that builds a working NixOS system. This is the base
+# for the integration test that verifies that my common module is valid.
 
-# The inputs are by the inputs of the Nix flake, such as "nixpkgs-unstable".
-{ config
-, pkgs
-, system
-
-  # Flake inputs
-, nixpkgs
-  # , nixpkgs-unstable
-, home-manager
-  #, phip1611-common
-, ...
-}:
+{ config, pkgs, ... }:
 
 let
   testuser = "foobar";
@@ -26,9 +15,6 @@ in
     # flake definition is fine. However, this should be fine for now.
     # phip1611-common.nixosModules.phip1611-common
     ../../NixOS
-
-    # Enables the "home-manager" configuration property.
-    home-manager.nixosModules.home-manager
 
     # Actual tests that test the configuration properties from my module put
     # into smaller sub-modules.

@@ -20,13 +20,18 @@
     };*/
   };
 
-  outputs = { nixpkgs, ... }@attrs:
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }@attrs:
+    let
+      system = "x86_64-linux";
+      pkgsUnstable = import nixpkgs-unstable { config = { allowUnfree = true; }; inherit system; };
+    in
     {
       nixosConfigurations.ci = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         # Passes the inputs as argument to configuration.nix
-        specialArgs = attrs;
+        specialArgs = attrs // { inherit pkgsUnstable; };
         modules = [
+          home-manager.nixosModules.home-manager
           ./configuration.nix
         ];
       };

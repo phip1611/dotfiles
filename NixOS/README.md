@@ -39,7 +39,6 @@ configuration may look like this:
       url = github:nix-community/home-manager/release-23.05;
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Needs flake inputs "nixpkgs" and "nixpkgs-unstable".
     phip1611-common = {
       type = "github";
       owner = "phip1611";
@@ -48,13 +47,28 @@ configuration may look like this:
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, ... }@attrs:
+  outputs =
+    { self
+    , nixpkgs
+    , nixpkgs-unstable
+    , home-manager
+    , phip1611-common
+    , ...
+    }@attrs:
+    let
+      system = "x86_64-linux";
+      pkgsUnstable = import nixpkgs-unstable { config = { allowUnfree = true; }; inherit system; };
+    in
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         # Passes the inputs as argument to configuration.nix
-        specialArgs = attrs;
+        specialArgs = attrs // { inherit pkgsUnstable; };
         modules = [
+          home-manager.nixosModules.home-manager
+          phip1611-common.nixosModules.phip1611-common
+
+          # your configuration using options from phip1611-common.*
           ./configuration.nix
         ];
       };

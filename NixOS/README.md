@@ -55,13 +55,19 @@ configuration may look like this:
     , phip1611-common
     , ...
     }@attrs:
+
     let
       system = "x86_64-linux";
-      pkgsUnstable = import nixpkgs-unstable { config = { allowUnfree = true; }; inherit system; };
+      pkgsUnstable = import nixpkgs-unstable {
+        inherit system;
+        config = {
+          allowUnfree = true;
+        };
+      };
     in
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         # Passes the inputs as argument to configuration.nix
         specialArgs = attrs // { inherit pkgsUnstable; };
         modules = [

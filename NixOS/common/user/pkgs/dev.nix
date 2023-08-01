@@ -30,6 +30,7 @@ in
       binutils
       clang-tools # clang-format
       cmake
+      cmake-format
       gdb
       gnumake
       grub2 # for grub-file etc.

@@ -55,7 +55,6 @@ in
       traceroute
       tree
       ttfb
-      typos
       usbutils # lsusb
       util-linux # lsblk and more
       wambo
@@ -69,6 +68,8 @@ in
     ++
     # All packages that are not yet in nixpkgs stable that I need.
     (with pkgsUnstable; [
+      # typos has frequent releases and they are not yet merged to the stable channel
+      typos
     ]);
 
     # Enables a few cases where route priviledges are requrired.

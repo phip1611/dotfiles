@@ -31,10 +31,11 @@ in
       # vscode
       xournalpp
     ]) ++
-    # pkgs whose updates to not immediatelly land in stable.
+    # pkgs whose updates do not immediatelly land in stable.
     (with pkgsUnstable; [
       alacritty
       jetbrains.clion
+      jetbrains.rust-rover
       vscode
     ]);
   };

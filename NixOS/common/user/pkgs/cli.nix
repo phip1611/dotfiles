@@ -55,6 +55,7 @@ in
       traceroute
       tree
       ttfb
+      unzip
       usbutils # lsusb
       util-linux # lsblk and more
       wambo
@@ -62,6 +63,7 @@ in
       whois
       vim
       xclip # for copy & paste in several tools, such as micro
+      zip
       zsh
       zx
     ]

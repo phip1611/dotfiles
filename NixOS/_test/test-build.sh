@@ -11,3 +11,5 @@ nix-shell --pure \
 # There is no "--no-out-link" or similar. Hence, we manually remove
 # the ./result folder.
 rm -f ./result
+
+echo "✅ SUCCESS"

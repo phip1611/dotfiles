@@ -5,6 +5,7 @@ let
 in
 {
   imports = [
+    ./docker.nix
     ./documentation.nix
     ./firmware.nix
     ./latest-linux.nix
@@ -19,6 +20,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    phip1611.common.system.docker.rootless.enable = true;
     phip1611.common.system.documentation.enable = true;
     phip1611.common.system.firmware.enable = true;
     phip1611.common.system.latest-linux.enable = true;

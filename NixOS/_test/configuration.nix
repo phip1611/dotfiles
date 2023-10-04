@@ -27,6 +27,7 @@ in
   phip1611.stateVersion = stateVersion;
   phip1611.username = testuser;
   phip1611.common.enable = true;
+  phip1611.common.system.docker.rootless.enable = true;
   phip1611.common.system.documentation.enable = true;
   phip1611.common.system.enable = true;
   phip1611.common.system.firmware.enable = true;

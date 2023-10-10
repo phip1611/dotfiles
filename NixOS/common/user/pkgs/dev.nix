@@ -20,6 +20,7 @@ in
       cargo-msrv
       cargo-nextest
       cargo-outdated
+      cargo-release
       cargo-update
       cargo-watch
 

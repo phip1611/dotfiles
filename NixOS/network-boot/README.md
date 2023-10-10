@@ -48,6 +48,40 @@ want to access it via SSH, it can boot normally.
 }
 ```
 
+### Configuration with Specialization
+You can also use NixOS specializations to make the network-boot functionality
+availability dependent on the selection of a boot entry. For example, if the
+network boot is only useful in the docking station in the office, you can
+entirely get rid of the functionality by using a specialization like this:
+
+```nix
+{
+  specialisation.office-network-boot = {
+    inheritParentConfig = true;
+    configuration = {
+      system.nixos.tags = [ "office-network-boot" ];
+
+      phip1611.network-boot.enable = true;
+      # Enable dnsmasq from my common module.
+      phip1611.network-boot.tftpRoot = tftpRootSystem;
+      phip1611.network-boot.interfaces = [
+        {
+          interface = "enp4s0";
+          hostIp = "192.168.44.100";
+          testboxIp = "192.168.44.101";
+          hostnameAlias = "testbox";
+        }
+      ];
+    };
+  };
+}
+```
+
+More info:
+- <https://www.tweag.io/blog/2022-08-18-nixos-specialisations/>
+- <https://search.nixos.org/options?channel=23.05&show=specialisation.%3Cname%3E.configuration&from=0&size=50&sort=relevance&type=packages&query=specialisation>
+
+
 ## iPXE
 [iPXE](https://ipxe.org/) is PXE on steroids. In my setup, I let network-boot
 clients chainload iPXE which allows me much more flexibility to bootstrap the

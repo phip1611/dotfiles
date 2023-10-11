@@ -1,14 +1,16 @@
 # This overlay adds additional functionality to `pkgs`.
 
-_self: super:
+final: prev:
 
 let
-  pkgs = super.pkgs;
-  lib = super.lib;
+  pkgs = final.pkgs;
+  lib = final.lib;
   utils = import ./utils { inherit lib; };
   writers = import ./writers { inherit pkgs; };
 in
 {
   phip1611-util = utils;
-  writers = { inherit (writers) writeZxScriptBin; };
+  # I'm not entirely sure why, but `writers` is not merged with the existing
+  # value but it overrides it. Hence, we merge it manually here.
+  writers = { inherit (writers) writeZxScriptBin; } // prev.writers;
 }

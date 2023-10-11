@@ -24,16 +24,21 @@
     let
       system = "x86_64-linux";
       pkgsUnstable = import nixpkgs-unstable { config = { allowUnfree = true; }; inherit system; };
+
+      base = configurationsModules:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          # Passes the inputs as argument to configuration.nix
+          specialArgs = attrs // { inherit pkgsUnstable; };
+          modules = [
+            home-manager.nixosModules.home-manager
+          ] ++ configurationsModules;
+        };
     in
     {
-      nixosConfigurations.ci = nixpkgs.lib.nixosSystem {
-        inherit system;
-        # Passes the inputs as argument to configuration.nix
-        specialArgs = attrs // { inherit pkgsUnstable; };
-        modules = [
-          home-manager.nixosModules.home-manager
-          ./configuration.nix
-        ];
+      nixosConfigurations = {
+        ci = base [ ./configuration.nix ./configuration-ci.nix ];
+        full = base [ ./configuration.nix ];
       };
     };
 }

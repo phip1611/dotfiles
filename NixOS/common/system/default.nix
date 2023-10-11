@@ -20,13 +20,13 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    phip1611.common.system.docker.rootless.enable = true;
-    phip1611.common.system.documentation.enable = true;
-    phip1611.common.system.firmware.enable = true;
-    phip1611.common.system.latest-linux.enable = true;
-    phip1611.common.system.nix-cfg.enable = true;
-    phip1611.common.system.nix-ld.enable = true;
-    phip1611.common.system.nix-path-from-flake.enable = true;
-    phip1611.common.system.sudo.enable = true;
+    phip1611.common.system.docker.rootless.enable = lib.mkDefault true;
+    phip1611.common.system.documentation.enable = lib.mkDefault true;
+    phip1611.common.system.firmware.enable = lib.mkDefault true;
+    phip1611.common.system.latest-linux.enable = lib.mkDefault true;
+    phip1611.common.system.nix-cfg.enable = lib.mkDefault true;
+    phip1611.common.system.nix-ld.enable = lib.mkDefault true;
+    phip1611.common.system.nix-path-from-flake.enable = lib.mkDefault true;
+    phip1611.common.system.sudo.enable = lib.mkDefault true;
   };
 }

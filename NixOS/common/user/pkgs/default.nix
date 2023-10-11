@@ -32,14 +32,14 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    phip1611.common.user.pkgs.custom.enable = true;
-    phip1611.common.user.pkgs.dev.enable = true;
-    phip1611.common.user.pkgs.doc.enable = true;
-    phip1611.common.user.pkgs.fonts.enable = true;
-    phip1611.common.user.pkgs.gnome-exts.enable = true;
-    phip1611.common.user.pkgs.gui.enable = true;
-    phip1611.common.user.pkgs.media.enable = true;
-    phip1611.common.user.pkgs.python3.enable = true;
-    phip1611.common.user.pkgs.cli.enable = true;
+    phip1611.common.user.pkgs.custom.enable = lib.mkDefault true;
+    phip1611.common.user.pkgs.dev.enable = lib.mkDefault true;
+    phip1611.common.user.pkgs.doc.enable = lib.mkDefault true;
+    phip1611.common.user.pkgs.fonts.enable = lib.mkDefault true;
+    phip1611.common.user.pkgs.gnome-exts.enable = lib.mkDefault true;
+    phip1611.common.user.pkgs.gui.enable = lib.mkDefault true;
+    phip1611.common.user.pkgs.media.enable = lib.mkDefault true;
+    phip1611.common.user.pkgs.python3.enable = lib.mkDefault true;
+    phip1611.common.user.pkgs.cli.enable = lib.mkDefault true;
   };
 }

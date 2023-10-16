@@ -41,7 +41,8 @@ in
     home-manager.users."${username}" = {
       home.stateVersion = stateVersion;
       home.shellAliases = {
-        exa = "exa -lFagh --time-style=long-iso";
+        eza = "eza -lFagh --time-style=long-iso";
+        exa = "eza -lFagh --time-style=long-iso";
       };
 
       # With zsh, the location where the definitions of the global NixOS option

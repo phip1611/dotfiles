@@ -24,7 +24,7 @@ in
       curl
       dig # dig and nslookup
       du-dust
-      exa
+      eza # used to be exa
       fd # better find
       file
       fortune

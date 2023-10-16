@@ -4,16 +4,16 @@
 
   inputs = {
     nixpkgs = {
-      url = github:NixOS/nixpkgs/nixos-23.05;
+      url = "github:NixOS/nixpkgs/nixos-23.11";
     };
     nixpkgs-unstable = {
       # Use nixpkgs-unstable instead of master so that packages are more likely
       # to be cached already while still being as fresh as possible.
       # See https://discourse.nixos.org/t/differences-between-nix-channels/13998
-      url = github:NixOS/nixpkgs/nixpkgs-unstable;
+      url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     };
     home-manager = {
-      url = github:nix-community/home-manager/release-23.05;
+      url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Relative paths not supported at the moment :/

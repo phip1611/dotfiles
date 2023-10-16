@@ -22,7 +22,7 @@ Subdirectories have documentation either in a dedicated README or in the Nix
 files.
 
 ## Compatibility and Usage
-I use and tested this on a NixOS 23.05 system. The module is supposed to be used
+I use and tested this on a NixOS 23.11 system. The module is supposed to be used
 via Nix flakes. An example `flake.nix` that describes a full and valid NixOS
 configuration may look like this:
 

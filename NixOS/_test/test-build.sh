@@ -3,12 +3,14 @@
 DIR=$(dirname "$(realpath "$0")")
 cd "$DIR" || exit
 
+ARG1="${1:-''}" 
+
 set -euo pipefail
 IFS=$'\n\t'
 
 # In CI, we build a smaller configuration to prevent "no space left on device"
 # errors, which frequently happened in GitHub CI.
-if [ "$1" = "--ci" ]; then
+if [ "$ARG1" = "--ci" ]; then
     echo "Running in CI mode."
 
     echo "Ensuring the full configuration evaluates:"

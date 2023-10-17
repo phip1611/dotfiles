@@ -13,6 +13,7 @@ cargo install ^
     cargo-update ^
     cargo-watch ^
     du-dust ^
+    eza ^
     git-delta ^
     gitui ^
     nflz ^

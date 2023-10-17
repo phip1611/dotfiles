@@ -47,6 +47,7 @@ in
       ouch # cool convenient (de)compression tool
       paging-calculator
       pciutils # lspci
+      poppler_utils # for pdfunite
       ripgrep
       tcpdump
       tldr

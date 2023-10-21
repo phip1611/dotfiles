@@ -73,6 +73,8 @@ in
     (with pkgsUnstable; [
       # typos has frequent releases and they are not yet merged to the stable channel
       typos
+      # TODO move to stable with release 23.11
+      yazi # cool terminal file manager
     ]);
 
     # Enables a few cases where route priviledges are requrired.

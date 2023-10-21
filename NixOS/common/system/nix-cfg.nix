@@ -32,6 +32,12 @@ in
         keep-derivations = true;
 
         trusted-users = [ username ];
+
+        substituters = [
+          # nix-community: for example, lanzaboote has its files there.
+          "https://nix-community.cachix.org"
+          "https://cache.nixos.org/" # exists by default, but better be explicit
+        ];
       };
 
       # Garbage Collection

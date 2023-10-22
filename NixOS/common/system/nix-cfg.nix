@@ -3,6 +3,16 @@
 let
   cfg = config.phip1611.common.system.nix-cfg;
   username = config.phip1611.username;
+
+  # Additional trusted binary caches. The one from
+  # cache.nixos.org is always added by default.
+  trustedBinaryCaches = [
+    # nix-community: for example, the lanzaboote project has its files there.
+    ({
+      url = "https://nix-community.cachix.org";
+      key = "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=";
+    })
+  ];
 in
 {
   options = {
@@ -33,11 +43,8 @@ in
 
         trusted-users = [ username ];
 
-        substituters = [
-          # nix-community: for example, lanzaboote has its files there.
-          "https://nix-community.cachix.org"
-          "https://cache.nixos.org/" # exists by default, but better be explicit
-        ];
+        substituters = map ({ url, ... }: url) trustedBinaryCaches;
+        trusted-public-keys = map ({ key, ... }: key) trustedBinaryCaches;
       };
 
       # Garbage Collection

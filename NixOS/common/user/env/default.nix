@@ -1,5 +1,5 @@
 # This module enables typical environment settings (like default shell, prompt)
-# and home manager for the given user. This is intented as a big "all-in-one"
+# and home-manager for the given user. This is intented as a big "all-in-one"
 # module with no further sub-enable-options.
 
 { lib, config, options, ... }:
@@ -31,9 +31,12 @@ in
 
   # Set some aliases and environment variables, plus other misc stuff.
   config = lib.mkIf cfg.enable {
+    # https://nix-community.github.io/home-manager/nixos-options.html
+    home-manager.useGlobalPkgs = true;
+    home-manager.useUserPackages = true;
+
     home-manager.users."${username}" = { pkgs, config, ... }: {
       home.stateVersion = stateVersion;
-      nixpkgs.config.allowUnfree = true;
       home.shellAliases = {
         exa = "exa -lFagh --time-style=long-iso";
       };

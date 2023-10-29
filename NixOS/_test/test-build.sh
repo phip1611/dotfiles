@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 DIR=$(dirname "$(realpath "$0")")
 cd "$DIR" || exit
 
-ARG1="${1:-''}" 
-
-set -euo pipefail
-IFS=$'\n\t'
+ARG1="${1:-''}"
 
 # In CI, we build a smaller configuration to prevent "no space left on device"
 # errors, which frequently happened in GitHub CI.

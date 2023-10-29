@@ -38,11 +38,13 @@ in
         exa = "exa -lFagh --time-style=long-iso";
       };
 
-      # With zsh, the global option "environment.variables.*" is not taken into
-      # account. (This is a bug, I guess). Hence, I use it here.
+      # With zsh, the location where the definitions of the global NixOS option
+      # "environment.variables.*" are placed is not taken into account.
+      # (This is a bug, I guess?). Hence, I add these definitions in
+      # home-manager, so they are actually sourced.
       #
-      # I never came accross a case where this was needed, however, better be
-      # safe so that I can always use micro in my CLI utilities.
+      # I never came accross a case where these variables are needed, however,
+      # better be safe so that I can always use micro in my CLI utilities.
       home.sessionVariables = {
         EDITOR = "${pkgs.micro}/bin/micro";
         VISUAL = "${pkgs.micro}/bin/micro";

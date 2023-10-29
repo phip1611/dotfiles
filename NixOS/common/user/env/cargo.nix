@@ -2,11 +2,10 @@
 # This includes that `cargo install|uninstall <package>` works
 # within the typical `~/.cargo/bin` directory.
 
-username:
-
 { lib, config, ... }:
 
 let
+  username = config.phip1611.username;
   cfg = config.phip1611.common.user.env;
 
   # List of binaries to create a symlink to in `~/.cargo/bin`.

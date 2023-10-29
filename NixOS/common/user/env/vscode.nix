@@ -1,8 +1,7 @@
-username:
-
 { pkgs, lib, config, ... }:
 
 let
+  username = config.phip1611.username;
   cfg = config.phip1611.common.user.env;
 in
 {

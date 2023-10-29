@@ -11,13 +11,13 @@ let
 in
 {
   imports = [
-    (import ./alacritty.nix username)
-    (import ./cargo.nix username)
-    (import ./direnv.nix username)
-    (import ./git.nix username)
-    (import ./tmux.nix username)
-    (import ./vscode.nix username)
-    (import ./zsh.nix username)
+    ./alacritty.nix
+    ./cargo.nix
+    ./direnv.nix
+    ./git.nix
+    ./tmux.nix
+    ./vscode.nix
+    ./zsh.nix
   ];
 
   options = {

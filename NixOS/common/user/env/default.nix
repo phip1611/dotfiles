@@ -6,7 +6,7 @@
 
 let
   username = config.phip1611.username;
-  stateVersion = config.phip1611.stateVersion;
+  stateVersion = config.system.stateVersion;
   cfg = config.phip1611.common.user.env;
 in
 {

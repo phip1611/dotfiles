@@ -14,6 +14,8 @@ in
     # https://nixos.wiki/wiki/Fonts
     fonts = {
       fonts = with pkgs; [
+        # Used/Prefered by many applications, such as "yazi".
+        nerdfonts
         open-sans
         roboto
         roboto-mono

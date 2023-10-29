@@ -2,7 +2,7 @@
 # and home-manager for the given user. This is intented as a big "all-in-one"
 # module with no further sub-enable-options.
 
-{ lib, config, options, ... }:
+{ pkgs, lib, config, options, ... }:
 
 let
   username = config.phip1611.username;
@@ -35,7 +35,7 @@ in
     home-manager.useGlobalPkgs = true;
     home-manager.useUserPackages = true;
 
-    home-manager.users."${username}" = { pkgs, config, ... }: {
+    home-manager.users."${username}" = {
       home.stateVersion = stateVersion;
       home.shellAliases = {
         exa = "exa -lFagh --time-style=long-iso";

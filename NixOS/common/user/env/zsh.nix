@@ -16,7 +16,7 @@ in
     # Adds zsh to /etc/shells
     programs.zsh.enable = true;
 
-    home-manager.users."${username}" = { ... }: {
+    home-manager.users."${username}" = {
       home.sessionVariables = {
         # Hide "user@host" in ZSH's agnoster-theme => shorter prompt
         DEFAULT_USER = username;

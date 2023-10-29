@@ -1,6 +1,6 @@
 username:
 
-{ lib, config, options, ... }:
+{ pkgs, lib, config, options, ... }:
 
 let
   cfg = config.phip1611.common.user.env;
@@ -22,7 +22,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home-manager.users."${username}" = { pkgs, ... }: {
+    home-manager.users."${username}" = {
       programs.git = {
         enable = true;
         userName = cfg.git.username;

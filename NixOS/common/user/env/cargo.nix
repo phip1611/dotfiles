@@ -32,14 +32,20 @@ in
 {
   config = lib.mkIf (cfg.enable && !cfg.excludeGui) {
 
-    home-manager.users."${username}" = { config, ... }: {
-      home.file = createCargoBinSymlinks config.lib.file.mkOutOfStoreSymlink cargoSymlinkBins;
+    home-manager.users."${username}" =
+      {
+        # refers to a home-manager config, not the NixOS config
+        config
+      , ...
+      }:
+      {
+        home.file = createCargoBinSymlinks config.lib.file.mkOutOfStoreSymlink cargoSymlinkBins;
 
-      # Add tools installed via cargo to the end of $PATH.
-      # This gives those binaries the lowest precedence in $PATH.
-      home.sessionPath = [
-        "/home/${username}/.cargo/bin"
-      ];
-    };
+        # Add tools installed via cargo to the end of $PATH.
+        # This gives those binaries the lowest precedence in $PATH.
+        home.sessionPath = [
+          "/home/${username}/.cargo/bin"
+        ];
+      };
   };
 }

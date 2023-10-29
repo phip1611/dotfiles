@@ -7,7 +7,7 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    home-manager.users."${username}" = { ... }: {
+    home-manager.users."${username}" = {
       programs.direnv.enable = true;
       # A faster, persistent implementation of direnv's use_nix and use_flake,
       # to replace the built-in one from "direnv".

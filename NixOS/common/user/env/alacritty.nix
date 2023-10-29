@@ -14,7 +14,7 @@ in
       source-code-pro
     ];
 
-    home-manager.users."${username}" = { ... }: {
+    home-manager.users."${username}" = {
       programs.alacritty = {
         enable = true;
         settings = builtins.fromJSON (builtins.readFile ./alacritty.json);

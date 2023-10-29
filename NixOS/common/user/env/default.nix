@@ -33,7 +33,10 @@ in
   config = lib.mkIf cfg.enable {
     # https://nix-community.github.io/home-manager/nixos-options.html
     home-manager.useGlobalPkgs = true;
-    home-manager.useUserPackages = true;
+    # If this is true, GUI apps that are added by the programs.*.enable options
+    # (such as Alacritty) are only accessible from the PATH but not from the
+    # desktop environment anymore.
+    home-manager.useUserPackages = false;
 
     home-manager.users."${username}" = {
       home.stateVersion = stateVersion;

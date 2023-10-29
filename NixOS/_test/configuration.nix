@@ -5,7 +5,6 @@
 
 let
   testuser = "foobar";
-  stateVersion = "23.05";
 in
 {
   imports = [
@@ -22,11 +21,11 @@ in
   ];
 
   config = {
+    system.stateVersion = "23.05";
 
     # ---------------------------------------------------------------------------
-    # Test the properties from my NixOS Module. Use the `$ list-nixos-options.sh`
-    # to find all.
-    phip1611.stateVersion = stateVersion;
+    # Test the properties from my NixOS Module. Use the
+    # `$ ./list-nixos-options.sh` utility in this repo to find them all.
     phip1611.username = testuser;
     phip1611.common.enable = true;
     phip1611.common.system.docker.rootless.enable = true;
@@ -64,7 +63,6 @@ in
     # ---------------------------------------------------------------------------
 
     nixpkgs.config.allowUnfree = true;
-    system.stateVersion = stateVersion;
 
     boot.loader.systemd-boot.enable = true;
 

@@ -66,17 +66,19 @@ configuration may look like this:
       };
     in
     {
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        inherit system;
-        # Passes the inputs as argument to configuration.nix
-        specialArgs = attrs // { inherit pkgsUnstable; };
-        modules = [
-          home-manager.nixosModules.home-manager
-          phip1611-common.nixosModules.phip1611-common
+      nixosConfigurations = {
+        nixos = nixpkgs.lib.nixosSystem {
+          inherit system;
+          # Passes the inputs as argument to configuration.nix
+          specialArgs = attrs // { inherit pkgsUnstable; };
+          modules = [
+            home-manager.nixosModules.home-manager
+            phip1611-common.nixosModules.phip1611-common
 
-          # your configuration using options from phip1611-common.*
-          ./configuration.nix
-        ];
+            # your configuration using options from phip1611-common.*
+            ./configuration.nix
+          ];
+        };
       };
     };
 }
@@ -89,33 +91,19 @@ and the corresponding `configuration.nix` may look like this:
 
 { config
 , pkgs
+# Used by some modules to consume packages from the unstable channel.
+, pkgsUnstable
 , lib
-
-  # Flake inputs
-, home-manager
-, phip1611-common
 , ...
 }:
 
-let
-  stateVersion = "hannel:nixos-23.05";
-in
 {
-  imports = [
-    # Enables the "home-manager" configuration property
-    home-manager.nixosModules.home-manager
-    # Needs flake inputs "nixpkgs" and "nixpkgs-unstable".
-    phip1611-common.nixosModules.phip1611-common
-  ];
-
   # phip1611 dotfiles common NixOS module configuration
   phip1611 = {
     username = "pschuster";
-    stateVersion = stateVersion;
     common = {
       enable = true;
-      cfg.username = "user-name";
-      cfg.stateVersion = "23.05";
+      username = "user-name";
       user.env.git.email = "foobar@bar.de";
       user.pkgs.python3.additionalPython3Pkgs = [
         pkgs.python3Packages.pwntools
@@ -128,7 +116,7 @@ in
 }
 ```
 
-and build with `$ nixos-rebuild dry-build --flake .#nixos`.
+and build with `$ nixos-rebuild build --flake .#nixos && rm result`.
 
 # Additional Notes
 Some NixOS options require a restart of the system to have a fully applied NixOS

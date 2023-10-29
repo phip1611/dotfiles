@@ -1,13 +1,12 @@
-username:
-
-{ lib, config, ... }:
+{ pkgs, lib, config, ... }:
 
 let
+  username = config.phip1611.username;
   cfg = config.phip1611.common.user.env;
 in
 {
   config = lib.mkIf (cfg.enable && !cfg.excludeGui) {
-    home-manager.users."${username}" = { pkgs, ... }: {
+    home-manager.users."${username}" = {
       programs.vscode = {
         enable = true;
         extensions = with pkgs.vscode-extensions; [

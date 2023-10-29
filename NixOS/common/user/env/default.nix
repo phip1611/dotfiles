@@ -1,23 +1,23 @@
 # This module enables typical environment settings (like default shell, prompt)
-# and home manager for the given user. This is intented as a big "all-in-one"
+# and home-manager for the given user. This is intented as a big "all-in-one"
 # module with no further sub-enable-options.
 
-{ lib, config, options, ... }:
+{ pkgs, lib, config, options, ... }:
 
 let
   username = config.phip1611.username;
-  stateVersion = config.phip1611.stateVersion;
+  stateVersion = config.system.stateVersion;
   cfg = config.phip1611.common.user.env;
 in
 {
   imports = [
-    (import ./alacritty.nix username)
-    (import ./cargo.nix username)
-    (import ./direnv.nix username)
-    (import ./git.nix username)
-    (import ./tmux.nix username)
-    (import ./vscode.nix username)
-    (import ./zsh.nix username)
+    ./alacritty.nix
+    ./cargo.nix
+    ./direnv.nix
+    ./git.nix
+    ./tmux.nix
+    ./vscode.nix
+    ./zsh.nix
   ];
 
   options = {
@@ -31,18 +31,23 @@ in
 
   # Set some aliases and environment variables, plus other misc stuff.
   config = lib.mkIf cfg.enable {
-    home-manager.users."${username}" = { pkgs, config, ... }: {
+    # https://nix-community.github.io/home-manager/nixos-options.html
+    home-manager.useGlobalPkgs = true;
+    home-manager.useUserPackages = true;
+
+    home-manager.users."${username}" = {
       home.stateVersion = stateVersion;
-      nixpkgs.config.allowUnfree = true;
       home.shellAliases = {
         exa = "exa -lFagh --time-style=long-iso";
       };
 
-      # With zsh, the global option "environment.variables.*" is not taken into
-      # account. (This is a bug, I guess). Hence, I use it here.
+      # With zsh, the location where the definitions of the global NixOS option
+      # "environment.variables.*" are placed is not taken into account.
+      # (This is a bug, I guess?). Hence, I add these definitions in
+      # home-manager, so they are actually sourced.
       #
-      # I never came accross a case where this was needed, however, better be
-      # safe so that I can always use micro in my CLI utilities.
+      # I never came accross a case where these variables are needed, however,
+      # better be safe so that I can always use micro in my CLI utilities.
       home.sessionVariables = {
         EDITOR = "${pkgs.micro}/bin/micro";
         VISUAL = "${pkgs.micro}/bin/micro";

@@ -4,7 +4,7 @@
 
 let
   cfg = config.phip1611.common.user.pkgs.python3;
-  username = config.phip1611.username;
+  username = builtins.head config.phip1611.usernames;
 
   # Additional python3 packages.
   addPy3Pkgs = config.phip1611.common.user.pkgs.python3.additionalPython3Pkgs;

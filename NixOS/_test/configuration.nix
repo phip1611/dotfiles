@@ -26,7 +26,7 @@ in
     # ---------------------------------------------------------------------------
     # Test the properties from my NixOS Module. Use the
     # `$ ./list-nixos-options.sh` utility in this repo to find them all.
-    phip1611.username = testuser;
+    phip1611.usernames = [ testuser ];
     phip1611.common.enable = true;
     phip1611.common.system.docker.rootless.enable = true;
     phip1611.common.system.documentation.enable = true;

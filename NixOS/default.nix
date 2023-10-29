@@ -11,12 +11,10 @@
   ];
 
   options.phip1611 = {
-    username = lib.mkOption {
-      # users = lib.mkOption {
-      # type = lib.types.listOf lib.types.str;
-      type = lib.types.str;
-      description = "User for that all enabled configurations apply";
-      default = "phip1611";
+    usernames = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      description = "Users for that all enabled configurations apply";
+      default = [ "phip1611" ];
     };
   };
 }

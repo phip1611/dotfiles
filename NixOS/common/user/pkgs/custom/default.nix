@@ -2,7 +2,7 @@
 
 let
   cfg = config.phip1611.common.user.pkgs.custom;
-  username = config.phip1611.username;
+  username = builtins.head config.phip1611.usernames;
 in
 {
   imports = [

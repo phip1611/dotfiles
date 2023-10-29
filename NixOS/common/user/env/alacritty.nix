@@ -3,7 +3,7 @@
 { pkgs, lib, config, ... }:
 
 let
-  username = config.phip1611.username;
+  usernames = config.phip1611.usernames;
   cfg = config.phip1611.common.user.env;
 in
 {
@@ -13,11 +13,16 @@ in
       source-code-pro
     ];
 
-    home-manager.users."${username}" = {
-      programs.alacritty = {
-        enable = true;
-        settings = builtins.fromJSON (builtins.readFile ./alacritty.json);
-      };
-    };
+    home-manager.users = builtins.foldl'
+      (acc: next: {
+        "${next}" = {
+          programs.alacritty = {
+            enable = true;
+            settings = builtins.fromJSON (builtins.readFile ./alacritty.json);
+          };
+        };
+      } // acc)
+      { }
+      usernames;
   };
 }

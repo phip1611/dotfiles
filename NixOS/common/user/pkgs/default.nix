@@ -17,6 +17,7 @@ in
 {
   imports = [
     ./custom
+    ./cli.nix
     ./dev.nix
     ./doc.nix
     ./fonts.nix
@@ -24,7 +25,6 @@ in
     ./gui.nix
     ./media.nix
     ./python3.nix
-    ./cli.nix
   ];
 
   options = {

@@ -2,7 +2,7 @@
 
 let
   cfg = config.phip1611.common.system.nix-cfg;
-  username = config.phip1611.username;
+  username = builtins.head config.phip1611.usernames;
 
   # Additional trusted binary caches. The one from
   # cache.nixos.org is always added by default.

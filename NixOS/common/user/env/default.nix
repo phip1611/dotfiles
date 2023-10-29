@@ -5,7 +5,7 @@
 { pkgs, lib, config, options, ... }:
 
 let
-  username = config.phip1611.username;
+  usernames = config.phip1611.usernames;
   stateVersion = config.system.stateVersion;
   cfg = config.phip1611.common.user.env;
 in
@@ -35,23 +35,31 @@ in
     home-manager.useGlobalPkgs = true;
     home-manager.useUserPackages = true;
 
-    home-manager.users."${username}" = {
-      home.stateVersion = stateVersion;
-      home.shellAliases = {
-        exa = "exa -lFagh --time-style=long-iso";
-      };
 
-      # With zsh, the location where the definitions of the global NixOS option
-      # "environment.variables.*" are placed is not taken into account.
-      # (This is a bug, I guess?). Hence, I add these definitions in
-      # home-manager, so they are actually sourced.
-      #
-      # I never came accross a case where these variables are needed, however,
-      # better be safe so that I can always use micro in my CLI utilities.
-      home.sessionVariables = {
-        EDITOR = "${pkgs.micro}/bin/micro";
-        VISUAL = "${pkgs.micro}/bin/micro";
-      };
-    };
+    home-manager.users = pkgs.phip1611-util.tracePrettyVal (builtins.foldl'
+      (acc: next: pkgs.phip1611-util.tracePrettyVal
+        {
+          "${next}" = {
+            home.stateVersion = stateVersion;
+            nixpkgs.config.allowUnfree = true;
+            home.shellAliases = {
+              exa = "exa -lFagh --time-style=long-iso";
+            };
+
+            # With zsh, the location where the definitions of the global NixOS option
+            # "environment.variables.*" are placed is not taken into account.
+            # (This is a bug, I guess?). Hence, I add these definitions in
+            # home-manager, so they are actually sourced.
+            #
+            # I never came accross a case where these variables are needed, however,
+            # better be safe so that I can always use micro in my CLI utilities.
+            home.sessionVariables = {
+              EDITOR = "${pkgs.micro}/bin/micro";
+              VISUAL = "${pkgs.micro}/bin/micro";
+            };
+          };
+        } // acc)
+      { }
+      usernames);
   };
 }

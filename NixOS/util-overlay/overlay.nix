@@ -3,8 +3,8 @@
 final: prev:
 
 let
-  pkgs = final.pkgs;
-  lib = final.lib;
+  pkgs = prev.pkgs;
+  lib = prev.lib;
   utils = import ./utils { inherit lib; };
   writers = import ./writers { inherit pkgs; };
 in

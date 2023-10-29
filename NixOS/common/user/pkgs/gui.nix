@@ -4,7 +4,7 @@
 
 let
   cfg = config.phip1611.common.user.pkgs.gui;
-  username = config.phip1611.username;
+  username = builtins.head config.phip1611.usernames;
 in
 {
   options = {

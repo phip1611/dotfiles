@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  username = config.phip1611.username;
+  username = builtins.head config.phip1611.usernames;
 
   # From overlay. Make sure that is used at least once.
   trace = pkgs.phip1611-util;

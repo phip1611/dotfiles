@@ -1,14 +1,19 @@
 { pkgs, lib, config, ... }:
 
 let
-  username = config.phip1611.username;
+  usernames = config.phip1611.usernames;
   cfg = config.phip1611.common.user.env;
 in
 {
   config = lib.mkIf cfg.enable {
-    home-manager.users."${username}" = {
-      programs.tmux.enable = true;
-      programs.tmux.extraConfig = builtins.readFile ./tmux.cfg;
-    };
+    home-manager.users = builtins.foldl'
+      (acc: next: {
+        "${next}" = {
+          programs.tmux.enable = true;
+          programs.tmux.extraConfig = builtins.readFile ./tmux.cfg;
+        };
+      } // acc)
+      { }
+      usernames;
   };
 }

@@ -3,7 +3,7 @@
 let
   cfg = config.phip1611.network-boot;
 
-  username = config.phip1611.username;
+  username = builtins.head config.phip1611.usernames;
 
   # Name of the ipxe EFI binary in the tftp root.
   ipxeEfi = "ipxe.efi";

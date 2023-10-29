@@ -1,4 +1,4 @@
-# meshcommander systemd user service
+# meshcommander systemd service
 # https://github.com/Ylianst/MeshCommander
 
 { pkgs, lib, config, options, ... }:
@@ -8,7 +8,7 @@ let
 in
 {
   options.phip1611.services.meshcommander = {
-    enable = lib.mkEnableOption "Enable the meshcommander web-server for Intel AMT on localhost as systemd user service";
+    enable = lib.mkEnableOption "Enable the meshcommander web-server for Intel AMT on localhost as systemd service";
     port = lib.mkOption {
       type = lib.types.int;
       description = "Port on localhost for the web-server";
@@ -17,7 +17,7 @@ in
   };
 
   config = lib.mkIf cfg.enable ({
-    systemd.user.services.meshcommander = {
+    systemd.services.meshcommander = {
       enable = true;
       restartIfChanged = true;
       description = "Intel AMT Management Server on localhost:3000";

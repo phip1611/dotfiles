@@ -7,7 +7,7 @@
     ./common
     ./network-boot
     ./services
-    ./util-overlay
+    ./libutil/overlay-module.nix
   ];
 
   options.phip1611 = {

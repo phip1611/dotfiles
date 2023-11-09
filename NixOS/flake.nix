@@ -14,5 +14,15 @@
       phip1611-common = import ./default.nix;
       default = phip1611-common;
     };
+
+    # Directly export the overlay, for example to quickly prototype in a
+    # nix repl:
+    # > :lf .
+    # > pkgs = import <nixpkgs> { overlays = [ overlays.default ]; }
+    overlays = rec {
+      default = phip1611-util;
+      phip1611-util = import ./libutil/overlay.nix
+      ;
+    };
   };
 }

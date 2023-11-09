@@ -7,6 +7,10 @@ cd "$DIR" || exit
 
 ARG1="${1:-''}"
 
+# First, run unit tests
+nix build .\#checks.x86_64-linux.runLibutilTests
+rm result
+
 # In CI, we build a smaller configuration to prevent "no space left on device"
 # errors, which frequently happened in GitHub CI.
 if [ "$ARG1" = "--ci" ]; then

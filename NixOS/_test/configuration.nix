@@ -7,14 +7,9 @@ let
   testuser = "foobar";
 in
 {
-  imports = [
-    # Actual tests split into sub-modules, which test the configuration
-    # properties from my module.
-    ./modules
-  ];
-
   config = {
-    system.stateVersion = "23.05";
+    system.stateVersion = "23.11";
+    nixpkgs.config.allowUnfree = true;
 
     # ---------------------------------------------------------------------------
     # Test the properties from my NixOS Module. Use the
@@ -50,12 +45,28 @@ in
     ];
     phip1611.common.user.pkgs.python3.enable = true;
 
+    phip1611.network-boot.enable = true;
+    phip1611.network-boot.tftpRoot = "/tftpboot";
+    phip1611.network-boot.interfaces = [
+      {
+        interface = "enp4s0";
+        hostIp = "192.168.44.100";
+        testboxIp = "192.168.44.101";
+        hostnameAlias = "testbox";
+      }
+      {
+        interface = "enp4s1";
+        hostIp = "192.168.44.200";
+        testboxIp = "192.168.44.201";
+        hostnameAlias = "testbox2";
+      }
+    ];
+
     phip1611.services.meshcommander.enable = true;
     phip1611.services.meshcommander.port = 3000;
 
     # ---------------------------------------------------------------------------
-
-    nixpkgs.config.allowUnfree = true;
+    # Minimal configuration that builds a working NixOS system.
 
     boot.loader.systemd-boot.enable = true;
 

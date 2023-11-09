@@ -1,4 +1,4 @@
-# Additional configuration that is needed in CI.
+# Additional configuration for `configuration.nix` that is needed in CI.
 
 { config, pkgs, lib, ... }:
 
@@ -9,7 +9,7 @@
   phip1611.common.user.pkgs.gui.enable = lib.mkForce false;
 
   imports = [
-    # After applying the override, use the regular/normal config.
+    # After applying the override above, use the regular config.
     ./configuration.nix
   ];
 }

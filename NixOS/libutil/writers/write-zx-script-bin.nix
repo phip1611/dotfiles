@@ -2,24 +2,26 @@
 # with the provided content. Similar to `writeShellScriptBin`, it consumes the name of
 # the script and the NodeJS/ZX-script content as parameters.
 
-{ pkgs }:
+{ writeTextFile
+, zx
+}:
 
 name: text:
 
 let
-  mjsBin = pkgs.writeTextFile {
+  mjsBin = writeTextFile {
     name = "${name}-mjs";
     executable = true;
     # For Google ZX, the .mjs extension is mandatory.
     destination = "/bin/${name}.mjs";
     text = ''
-      #!${pkgs.zx}/bin/zx
+      #!${zx}/bin/zx
       ${text}
     '';
   };
 in
 # Shebang script enables to call the zx-script without the .mjs version.
-pkgs.writeTextFile {
+writeTextFile {
   name = "${name}";
   executable = true;
   destination = "/bin/${name}";

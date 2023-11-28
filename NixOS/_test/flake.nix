@@ -17,6 +17,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
+
     # I don't use a flake input with relative paths here for two reasons:
     # 1) This is a bit cumbersome with Nix; the lock file needs to be updated
     #    manually all the time to track changes
@@ -28,16 +31,21 @@
     };*/
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }@attrs:
+  outputs =
+    inputs@{ flake-parts
+    , home-manager
+    , nixpkgs
+    , nixpkgs-unstable
+    , ...
+    }:
     let
       system = "x86_64-linux";
       pkgsUnstable = import nixpkgs-unstable { config = { allowUnfree = true; }; inherit system; };
-
       base = configurationsModules:
         nixpkgs.lib.nixosSystem {
           inherit system;
           # Passes the inputs as argument to configuration.nix
-          specialArgs = attrs // { inherit pkgsUnstable; };
+          specialArgs = inputs // { inherit pkgsUnstable; };
           modules = [
             # Import the actual common module.
             # See above why this is no flake.
@@ -46,10 +54,31 @@
           ] ++ configurationsModules;
         };
     in
-    {
-      nixosConfigurations = {
-        ci = base [ ./configuration.nix ./configuration-ci.nix ];
-        full = base [ ./configuration.nix ];
+    flake-parts.lib.mkFlake { inherit inputs; }
+      {
+        flake = {
+          nixosConfigurations = {
+            ci = base [ ./configuration.nix ./configuration-ci.nix ];
+            full = base [ ./configuration.nix ];
+          };
+        };
+        # Systems definition for dev shells and exported packages,
+        # independent of the NixOS configurations.
+        systems = [
+          "x86_64-linux"
+        ];
+
+        perSystem = { config, pkgs, ... }: {
+          devShells = {
+            default = pkgs.mkShell {
+              packages = with pkgs; [
+                nixos-rebuild
+                nixpkgs-fmt
+              ];
+            };
+          };
+
+          formatter = pkgs.nixpkgs-fmt;
+        };
       };
-    };
 }

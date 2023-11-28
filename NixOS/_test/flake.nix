@@ -41,7 +41,7 @@
     let
       system = "x86_64-linux";
       pkgsUnstable = import nixpkgs-unstable { config = { allowUnfree = true; }; inherit system; };
-      base = configurationsModules:
+      base = configurationEntryModule:
         nixpkgs.lib.nixosSystem {
           inherit system;
           # Passes the inputs as argument to configuration.nix
@@ -51,15 +51,16 @@
             # See above why this is no flake.
             ../../NixOS
             home-manager.nixosModules.home-manager
-          ] ++ configurationsModules;
+            configurationEntryModule
+          ];
         };
     in
     flake-parts.lib.mkFlake { inherit inputs; }
       {
         flake = {
           nixosConfigurations = {
-            ci = base [ ./configuration.nix ./configuration-ci.nix ];
-            full = base [ ./configuration.nix ];
+            ci = base ./configuration-ci.nix;
+            full = base ./configuration.nix;
           };
         };
         # Systems definition for dev shells and exported packages,

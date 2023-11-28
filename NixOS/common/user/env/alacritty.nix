@@ -9,7 +9,7 @@ in
 {
   config = lib.mkIf (cfg.enable && !cfg.excludeGui) {
 
-    fonts.fonts = with pkgs; [
+    fonts.packages = with pkgs; [
       source-code-pro
     ];
 

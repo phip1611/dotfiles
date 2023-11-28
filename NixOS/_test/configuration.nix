@@ -8,15 +8,8 @@ let
 in
 {
   imports = [
-    # My common module that I want to test.
-    # Nix flake inputs currently do not support relative paths. Hence, I import
-    # this module the legacy way.. as a consequence, I do not really test if the
-    # flake definition is fine. However, this should be fine for now.
-    # phip1611-common.nixosModules.phip1611-common
-    ../../NixOS
-
-    # Actual tests that test the configuration properties from my module put
-    # into smaller sub-modules.
+    # Actual tests split into sub-modules, which test the configuration
+    # properties from my module.
     ./modules
   ];
 

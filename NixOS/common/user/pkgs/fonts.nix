@@ -13,13 +13,12 @@ in
   config = lib.mkIf cfg.enable {
     # https://nixos.wiki/wiki/Fonts
     fonts = {
-      fonts = with pkgs; [
+      packages = with pkgs; [
         # Used/Prefered by many applications, such as "yazi".
         nerdfonts
         open-sans
         roboto
         roboto-mono
-        # For example used by allacritty's config.
         source-code-pro
       ];
 

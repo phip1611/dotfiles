@@ -16,8 +16,13 @@
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Relative paths not supported at the moment :/
-    # https://github.com/NixOS/nix/issues/3978#issuecomment-952418478
+
+    # I don't use a flake input with relative paths here for two reasons:
+    # 1) This is a bit cumbersome with Nix; the lock file needs to be updated
+    #    manually all the time to track changes
+    #    (see https://github.com/NixOS/nix/issues/3978#issuecomment-952418478)
+    # 2) There is no fix point. As the lock file changes, the flake input also
+    #    changes.
     /*phip1611-common = {
       url = "path:../../NixOS";
     };*/
@@ -34,6 +39,9 @@
           # Passes the inputs as argument to configuration.nix
           specialArgs = attrs // { inherit pkgsUnstable; };
           modules = [
+            # Import the actual common module.
+            # See above why this is no flake.
+            ../../NixOS
             home-manager.nixosModules.home-manager
           ] ++ configurationsModules;
         };

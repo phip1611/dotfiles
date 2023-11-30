@@ -14,6 +14,7 @@ in
           tamasfe.even-better-toml
           editorconfig.editorconfig
           rust-lang.rust-analyzer
+          github.vscode-github-actions
         ];
       };
     };

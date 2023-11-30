@@ -80,6 +80,11 @@
           };
 
           formatter = pkgs.nixpkgs-fmt;
+
+          checks = {
+            # $ nix build .\#checks.x86_64-linux.runLibutilTests
+            runLibutilTests = pkgs.callPackage ../libutil/_test { };
+          };
         };
       };
 }

@@ -16,7 +16,7 @@ let
 in
 {
   imports = [
-    ./custom
+    ./custom.nix
     ./dev.nix
     ./doc.nix
     ./fonts.nix

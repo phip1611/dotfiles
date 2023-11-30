@@ -12,9 +12,9 @@ common module can be found [here](_test/flake.nix) and
 There are the following major submodules available:
 - [common](common/README.md): typical environment setup of a system and
   user-specific things, such as the shell and CLI tools
+- [libutil](util-overlay/README.md): utility functions as Nix library and also as Nix overlay
 - [network-boot](network-boot/README.md): Network Boot Setup
 - [services](services/README.md): systemd Services
-- [util-overlay](util-overlay/README.md): utility functions in a Nix overlay
 
 You can list all NixOS configurations of this module by typing
 `$ ./list-nixos-options.sh`. They are all prefixed with `phip1611`.

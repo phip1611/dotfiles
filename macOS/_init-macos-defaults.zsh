@@ -95,7 +95,7 @@ defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 ###############################################################################
-# Sytem UI
+# System UI
 
 # Show Percent next to battery
 defaults write com.apple.menuextra.battery ShowPercent -string YES
